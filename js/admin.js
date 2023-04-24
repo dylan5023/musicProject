@@ -6,8 +6,8 @@ class Admin extends User {
      */
     _partyId;
     
-    constructor (id,name,email,picture = "",partyId) {
-        super (id,name,email,picture = "")
+    constructor (id,firstName,lastName,email,picture = "",partyId) {
+        super (id,firstName,lastName,email,picture = "")
         this._partyId = partyId;
     }
 

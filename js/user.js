@@ -6,9 +6,13 @@ class User {
      */
     _id;
     /**
-     * @var {string} name
+     * @var {string} firstName
      */
-    _name;
+    _firstName;
+    /**
+     * @var {string} lastName
+     */
+    _lastName;
     /**
      * @var {string} email
      */
@@ -19,9 +23,10 @@ class User {
     _picture;
 
     //Father constructor
-    constructor(id,name,email,picture = "") {
+    constructor(id,firstName,lastName,email,picture = "") {
         this._id = id;
-        this._name = name;
+        this._firstName = firstName;
+        this._lastName = lastName;
         this._email = email;
         this._picture = picture;
     }

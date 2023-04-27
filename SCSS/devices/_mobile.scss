@@ -9,14 +9,16 @@
         
     }
     #loginPage{
-        height: 100vh;
-        width: 100vw;
-        row-gap: 10vh;
         @include DisplayCenter;
         flex-direction: column;
+        row-gap: 10vh;
+    }
+    .container{
+        @include DisplayCenter;
+        width: 100vw;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
     }
     body{
-
         width: 100vw;
         height: 100vh;
         background-image: linear-gradient(45deg,$mainColor,$secColor);
@@ -70,34 +72,67 @@
             }
         }
     }
-    .loginForm{
+    #loginForm{
         @include DisplayColumn(5vh);
         align-items: center;
         justify-content: center;
         background-color: rgba(250,250,250,.3);
-        border-radius: 5px;
-        box-shadow: 0 0 5px black;
+        border-radius: 7px;
+        box-shadow: 0 0 5px $blackColor;
         width: 80%;
-        height: 40%;
+        height: 57vh;
 
-        input{
-            width: 80%;
-            padding: 1vh;
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2vh;
+        }
+        
+        input {
             background-color: transparent;
+            outline: none;
             border: none;
-            border-bottom: 1px solid gainsboro;
+            border-bottom: 1px solid $btnColor;
+            width: 250px;
+            transition: background 0.4s, border-color 0.2s;
         }
-        button{
-            width: 35%;
-            padding: 1vh;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: 600;
+        input:focus {
+            border-color: $mainColor;
         }
+    }
+    button{
+        width: 35%;
+        padding: 1vh;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 600;
     }
     ::placeholder{
-        color: black;
+        color: $blackColor;
         font-size: 18px;
     }
+
+    .form-hidden {
+        display: none;
+    }
+
+    .link-group {
+        display: flex;
+        flex-direction: column;
+        @include DisplayCenter;
+    }
+    
+    .link {
+        line-height: normal;
+        font-weight: 600;
+        text-align: center;
+        color: $blackColor;
+        text-decoration: none;
+        font-size: 16px;
+        width: 100%;
+        cursor: pointer;
+        border: none;
+    } 
+    
 }

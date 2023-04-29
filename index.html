@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <!-- <link rel="stylesheet" href="./scss/main.scss" /> -->
     <title>TrackFlow</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- <div id="loginPage">
         <section class="title">
             <h1>TrackFlow</h1>
@@ -23,8 +27,8 @@
         </section>
     
         <form action="#" id="loginForm"> -->
-            <!-- <section class="input-group">    -->
-                <!-- <span class="form-error-message"></span>
+    <!-- <section class="input-group">    -->
+    <!-- <span class="form-error-message"></span>
                 <input type="email" name="email" autofocus placeholder="Username or email">
                 <span class="input-error-message"></span>
 
@@ -36,8 +40,8 @@
                     <button class="btn forgot">Forgot your password?</button>
                     <button class="btn no-account" id="linkCreateAccount">Don't have an account?</button>
                 </article> -->
-            <!-- </section> -->
-        <!-- </form>
+    <!-- </section> -->
+    <!-- </form>
 
         <form action="#" class="hidden" id="createAccountForm">
             <span class="error-message"></span>
@@ -55,65 +59,80 @@
         </form>
     </div> -->
     <div id="loginPage">
-        <section class="title">
-            <h1>TrackFlow</h1>
-            <aside>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </aside>
-        </section>
-        <section class="container">
-            <form action="#" id="loginForm">
-                <span class="form-message form-message-error"></span>
-                <section class="input-group">
-                    <input type="text" id="signUpUsername" class="input" autofocus placeholder="Username or email">
-                    <span class="input-error-message"></span> 
-                </section>
-                <section class="input-group">
-                    <input type="password" class="input input-error"  placeholder="Password">
-                    <span class="input-error-message"></span>
-                </section>
-                <button class="submit-button" type="submit">Continue</button>
-                <section class="link-group">
-                    <a class="link forgot">Forgot your password?</a>
-                    <a class="link noaccount" id="linkCreateAccount">Don't have an account? Create account</a>
-                </section>
-            </form>
-            <form class="form-hidden" id="createAccountForm">
-                <h1>Create Account</h1>
-                <span class="form-message form-message-error"></span>
-                <section class="input-group">
-                    <input type="text" class="input" autofocus placeholder="Username">
-                    <span class="input-error-message"></span>
-                </section>
-                <section class="input-group">
-                    <input type="email" class="input" placeholder="Email">
-                    <span class="input-error-message"></span>
-                </section>
-                <section class="input-group">
-                    <input type="password" class="input-error" placeholder="Password">
-                    <span class="input-error-message"></span> 
-                </section>
-                <section class="input-group">
-                    <input type="password" class="input-error" placeholder="Confirm password">
-                    <span class="input-error-message"></span> 
-                </section>
-                <button class="form-button" type="submit">Continue</button>
-                <section class="link-text">
-                    <button class="link account" id="linkLogin">Already have an account? Sign in</button>
-                </section>
-            </form>
-        </section>
+      <section class="title">
+        <h1>TrackFlow</h1>
+        <aside>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </aside>
+      </section>
+      <section class="container">
+        <form action="#" id="loginForm">
+          <span class="form-message form-message-error"></span>
+          <section class="input-group">
+            <input
+              type="text"
+              id="signUpUsername"
+              class="input"
+              autofocus
+              placeholder="Username or email"
+            />
+            <span class="input-error-message"></span>
+          </section>
+          <section class="input-group">
+            <input
+              type="password"
+              class="input input-error"
+              placeholder="Password"
+            />
+            <span class="input-error-message"></span>
+          </section>
+          <button class="submit-button" type="submit">Continue</button>
+          <section class="link-group">
+            <a class="link forgot">Forgot your password?</a>
+            <a class="link noaccount" id="linkCreateAccount"
+              >Don't have an account? Create account</a
+            >
+          </section>
+        </form>
+        <form class="form-hidden" id="createAccountForm">
+          <h1>Create Account</h1>
+          <span class="form-message form-message-error"></span>
+          <section class="input-group">
+            <input type="text" class="input" autofocus placeholder="Username" />
+            <span class="input-error-message"></span>
+          </section>
+          <section class="input-group">
+            <input type="email" class="input" placeholder="Email" />
+            <span class="input-error-message"></span>
+          </section>
+          <section class="input-group">
+            <input type="password" class="input-error" placeholder="Password" />
+            <span class="input-error-message"></span>
+          </section>
+          <section class="input-group">
+            <input
+              type="password"
+              class="input-error"
+              placeholder="Confirm password"
+            />
+            <span class="input-error-message"></span>
+          </section>
+          <button class="form-button" type="submit">Continue</button>
+          <section class="link-text">
+            <button class="link account" id="linkLogin">
+              Already have an account? Sign in
+            </button>
+          </section>
+        </form>
+      </section>
     </div>
-    <div id="mainPage">
-        
-
-    </div>
-    <script src="/js/main.js" type="module" defer></script>
-</body>
+    <div id="mainPage"></div>
+    <!-- <script src="/js/main.js" type="module" defer></script> -->
+  </body>
 </html>

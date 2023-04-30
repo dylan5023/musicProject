@@ -1,103 +1,163 @@
-@media(min-width: 300px){
-    @keyframes Music {
-        50% {
-            height: 20%
-        }
-        100%{
-            height: 100%
-        }
-        
+// @import "/scss/mixins";
+@media (min-width: 300px) {
+  @keyframes Music {
+    50% {
+      height: 20%;
     }
-    #loginPage{
-        height: 100vh;
-        width: 100vw;
-        row-gap: 10vh;
-        @include DisplayCenter;
-        flex-direction: column;
+    100% {
+      height: 100%;
     }
-    body{
+  }
+  #loginPage {
+    @include DisplayCenter;
+    flex-direction: column;
+    row-gap: 10vh;
+  }
+  .container {
+    @include DisplayCenter;
+    width: 100vw;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(45deg, $mainColor, $secColor);
+  }
+  .title {
+    @include DisplayColumn(2vh);
+    align-items: center;
+  }
+  h1 {
+    color: gainsboro;
+    font-size: 50px;
+    text-shadow: 0 0 5px #0c120c;
+  }
+  aside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4vh;
+    width: 10vh;
 
-        width: 100vw;
-        height: 100vh;
-        background-image: linear-gradient(45deg,$mainColor,$secColor);
+    span {
+      width: 5px;
+      height: 100%;
+      border-radius: 50px;
+      background-color: gainsboro;
+      animation-duration: 2s;
+      animation-name: Music;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.9s;
+      }
+      &:nth-child(5) {
+        animation-delay: 0.6s;
+      }
+      &:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+      &:nth-child(7) {
+        animation-delay: 0s;
+      }
     }
-    .title{
-        @include DisplayColumn(2vh);
-        align-items: center;
+  }
+  #loginForm {
+    @include DisplayColumn(5vh);
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(250, 250, 250, 0.3);
+    border-radius: 7px;
+    box-shadow: 0 0 5px $blackColor;
+    width: 80%;
+    height: 57vh;
 
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2vh;
     }
-    h1{
-        color: gainsboro;
-        font-size: 50px;
-        text-shadow: 0 0 5px #0C120C
-    }
-    aside{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 4vh;
-        width: 10vh;
 
-        span{
-            width: 5px;
-            height: 100%;
-            border-radius: 50px;
-            background-color: gainsboro;
-            animation-duration: 2s;
-            animation-name: Music;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-            &:nth-child(1){
-                animation-delay: 0s;
-            }
-            &:nth-child(2){
-                animation-delay: .3s;
-            }
-            &:nth-child(3){
-                animation-delay: .6s;
-            }
-            &:nth-child(4){
-                animation-delay: .9s;
-            }
-            &:nth-child(5){
-                animation-delay: .6s;
-            }
-            &:nth-child(6){
-                animation-delay: .3s
-            }
-            &:nth-child(7){
-                animation-delay: 0s;
-            }
-        }
+    input {
+      background-color: transparent;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid $btnColor;
+      width: 250px;
+      transition: background 0.4s, border-color 0.2s;
     }
-    .loginForm{
-        @include DisplayColumn(5vh);
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(250,250,250,.3);
-        border-radius: 5px;
-        box-shadow: 0 0 5px black;
-        width: 80%;
-        height: 40%;
+    input:focus {
+      border-color: $mainColor;
+    }
+  }
+  button {
+    width: 35%;
+    padding: 1vh;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  ::placeholder {
+    color: $blackColor;
+    font-size: 18px;
+  }
 
-        input{
-            width: 80%;
-            padding: 1vh;
-            background-color: transparent;
-            border: none;
-            border-bottom: 1px solid gainsboro;
-        }
-        button{
-            width: 35%;
-            padding: 1vh;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: 600;
-        }
-    }
-    ::placeholder{
-        color: black;
-        font-size: 18px;
-    }
+  .form-hidden {
+    display: none;
+  }
+
+  .link-group {
+    display: flex;
+    flex-direction: column;
+    @include DisplayCenter;
+  }
+
+  .link {
+    line-height: normal;
+    font-weight: 600;
+    text-align: center;
+    color: $blackColor;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+  }
+
+  // main page
+  nav {
+    background-color: white;
+    padding: 10px;
+    border: 4px solid;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+  nav input {
+    width: 50px;
+  }
+  section {
+    height: 100vh;
+    border: 10px solid;
+    box-sizing: border-box;
+  }
+  section.page1 {
+    color: red;
+  }
+  section.page2 {
+    color: orange;
+  }
+  section.page3 {
+    color: green;
+  }
 }

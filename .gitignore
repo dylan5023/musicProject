@@ -4,4 +4,3 @@ image
 .DS_Store
 dist 
 node_modules
-static/data 

@@ -3,17 +3,17 @@ import "../scss/style.scss";
 // Single Page Aplication
 
 const page1 = /* html */ `
-    <article class = "page1">
-        <h1> Page 1</h1>
-    </article>`;
+    <section class = "page1">
+        <h1> Home</h1>
+    </section>`;
 const page2 = /* html */ `
-    <article class = "page2">
-        <h1> Page 2</h1>
-    </article>`;
+    <section class = "page2">
+        <h1> Create a Party</h1>
+    </section>`;
 const page3 = /* html */ `
-    <article class = "page3">
-        <h1> Page 3</h1>
-    </article>`;
+    <section class = "page3">
+        <h1> Profile</h1>
+    </section>`;
 
 const pages = [
   { path: "#/page1", template: page1 },

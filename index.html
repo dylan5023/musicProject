@@ -4,61 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
-    />
-    <!-- <link rel="stylesheet" href="./scss/main.scss" /> -->
+    <!-- <link rel="stylesheet" href="./SCSS/style.scss" /> -->
     <title>TrackFlow</title>
   </head>
   <body>
-    <!-- <div id="loginPage">
-        <section class="title">
-            <h1>TrackFlow</h1>
-            <aside>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </aside>
-        </section>
-    
-        <form action="#" id="loginForm"> -->
-    <!-- <section class="input-group">    -->
-    <!-- <span class="form-error-message"></span>
-                <input type="email" name="email" autofocus placeholder="Username or email">
-                <span class="input-error-message"></span>
-
-                <input type="password" name="password" id="password" placeholder="Password">
-                <span class="input-error-message"></span>
-
-                <button type="submit">Login</button>
-                <article class="button-group">
-                    <button class="btn forgot">Forgot your password?</button>
-                    <button class="btn no-account" id="linkCreateAccount">Don't have an account?</button>
-                </article> -->
-    <!-- </section> -->
-    <!-- </form>
-
-        <form action="#" class="hidden" id="createAccountForm">
-            <span class="error-message"></span>
-            <section class="input-group">
-                <input type="text" name="username" id="username" autofocus placeholder="Username">
-                <span class="input-error-message"></span>
-
-                <input type="email" name="email" autofocus placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
-                <span class="input-error-message"></span>
-
-                <input type="password" name="password" placeholder="Confirm password">
-                <button type="submit">Create account</button>
-            </section>
-        </form>
-    </div> -->
-    <div id="loginPage" style="display: none">
+    <div id="loginPage">
       <section class="title">
         <h1>TrackFlow</h1>
         <aside>
@@ -80,7 +30,7 @@
               id="signUpUsername"
               class="input"
               autofocus
-              placeholder="Username or email"
+              placeholder="Email"
             />
             <span class="input-error-message"></span>
           </section>
@@ -132,10 +82,16 @@
         </form>
       </section>
     </div>
-    <!-- main page -->
-    <div id="mainPage">
-        
-
-    </div>
+     <!-- main page -->
+     <div id="mainPage" style="display:none;">
+        <nav>
+          <a href="#/page1">Chart</a>
+          <a href="#/page2">Create Party</a>
+          <a href="#/page3">Profile</a>
+        </nav>
+        <div id="app"></div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script type="module" src="./js/main.js" defer></script>
   </body>
 </html>

@@ -3,17 +3,17 @@ import "../scss/style.scss";
 // Single Page Aplication
 
 const page1 = /* html */ `
-    <section class = "page1">
+    <article class = "page1">
         <h1> Page 1</h1>
-    </section>`;
+    </article>`;
 const page2 = /* html */ `
-    <section class = "page2">
+    <article class = "page2">
         <h1> Page 2</h1>
-    </section>`;
+    </article>`;
 const page3 = /* html */ `
-    <section class = "page3">
+    <article class = "page3">
         <h1> Page 3</h1>
-    </section>`;
+    </article>`;
 
 const pages = [
   { path: "#/page1", template: page1 },
@@ -30,3 +30,11 @@ const render = () => {
 window.addEventListener("popstate", render);
 
 render();
+
+// Login Code
+// const loginPage = $("#loginPage");
+// const createAccount = $("#createAccountForm");
+// const forgotBtn = $(".link forgot");
+// const noAccBtn = $(".link noaccount");
+// console.log(createAccount);
+

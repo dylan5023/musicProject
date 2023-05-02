@@ -146,18 +146,18 @@
   nav input {
     width: 50px;
   }
-  section {
+  article {
     height: 100vh;
     border: 10px solid;
     box-sizing: border-box;
   }
-  section.page1 {
+  article.page1 {
     color: red;
   }
-  section.page2 {
+  article.page2 {
     color: orange;
   }
-  section.page3 {
+  article.page3 {
     color: green;
   }
 }

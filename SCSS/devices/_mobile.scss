@@ -15,18 +15,27 @@
   }
   .container {
     @include DisplayCenter;
-    width: 100vw;
+    width: 100%;
+    max-height: 65vh;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
   }
   body {
     width: 100vw;
     height: 100vh;
+    // display: flex;
     background-image: linear-gradient(45deg, $mainColor, $secColor);
   }
   .title {
     @include DisplayColumn(2vh);
     align-items: center;
   }
+
+  .form-title {
+    color: $blackColor;
+    font-size: 30px;
+    text-shadow: 0 0 10px $textColor;
+  }
+
   h1 {
     color: gainsboro;
     font-size: 50px;
@@ -71,15 +80,15 @@
       }
     }
   }
-  #loginForm {
-    @include DisplayColumn(5vh);
+  form {
+    @include DisplayColumn(4vh);
     align-items: center;
     justify-content: center;
     background-color: rgba(250, 250, 250, 0.3);
     border-radius: 7px;
     box-shadow: 0 0 5px $blackColor;
     width: 80%;
-    height: 57vh;
+    height: 65vh;
 
     .input-group {
       display: flex;
@@ -99,9 +108,14 @@
       border-color: $mainColor;
     }
   }
+
+  .hidden {
+    display: none;
+  }
+
   button {
     width: 35%;
-    padding: 1vh;
+    padding: 2px;
     border: none;
     border-radius: 5px;
     font-size: 18px;
@@ -112,10 +126,6 @@
     font-size: 18px;
   }
 
-  .form-hidden {
-    display: none;
-  }
-
   .link-group {
     display: flex;
     flex-direction: column;
@@ -124,18 +134,18 @@
 
   .link {
     line-height: normal;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     color: $blackColor;
     text-decoration: none;
     font-size: 16px;
     width: 100%;
-    cursor: pointer;
     border: none;
   }
 
   // main page
   nav {
+    display: none;
     background-color: white;
     padding: 10px;
     border: 4px solid;
@@ -146,18 +156,82 @@
   nav input {
     width: 50px;
   }
-  section {
+  // #app{
+  //   width: 100vw;
+  //   height: 90vh;
+  //   @include DisplayCenter;
+  // }
+  article {
+    // width: 100vw;
     height: 100vh;
-    border: 10px solid;
+    // border: 10px solid;
     box-sizing: border-box;
+    @include DisplayCenter;
   }
-  section.page1 {
-    color: red;
+  // section.page1 {
+  //   color: red;
+  // }
+  // section.page2 {
+  //   color: orange;
+  // }
+  // section.page3 {
+  //   color: green;
+  // }
+
+  // .home,.profile{
+  //   height: 100%;
+  //   width: 100%;
+  // }
+
+  .home{ //display none cuz we start in charts
+    display: none;
   }
-  section.page2 {
-    color: orange;
+
+  main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    row-gap: 80vh;
+    align-items: center;
+    position: fixed;
+
+    a{
+      background-color: $btnColor;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      // padding: 1vh;
+      // border: 1px solid $mainColor;
+      border-radius: 5px;
+      box-shadow: 0 0 5px $blackColor;
+      color: $blackColor;
+      // text-align: center;
+    }
+    article{
+      height: 100%;
+      // width: 100%;
+    }
   }
-  section.page3 {
-    color: green;
+
+  header {
+    display: flex;
+    // height: 5vh;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    // column-gap: 60vw;
+
+    a{
+      height: 7vh;
+      width: 15vw;
+      @include DisplayCenter;
+    }
+  }
+  .playlist{
+    padding: 2vh;
+    width: 50vw;
+    text-align: center;
   }
 }

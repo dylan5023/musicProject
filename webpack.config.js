@@ -4,7 +4,10 @@ const HtmlPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: "./js/main.js",
-
+  mode: "development",
+  resolve: {
+    extensions: [".js", ".jsx", ".json"],
+  },
   // return bundle
   output: {
     path: path.resolve(__dirname, "public"),
@@ -19,7 +22,8 @@ module.exports = {
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         use: ["babel-loader"],
       },
     ],

@@ -35,8 +35,8 @@ class User {
         return this._id;
     }
 
-    createParty()
+    // createParty()
 
-    joinParty() 
+    // joinParty() 
 }
 export default User;

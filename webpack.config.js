@@ -7,7 +7,7 @@ module.exports = {
 
   // return bundle
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.join(__dirname, "public"),
     filename: "main.js",
     clean: true,
   },

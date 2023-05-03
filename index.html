@@ -4,62 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
-    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></script>
     <!-- <link rel="stylesheet" href="./scss/main.scss" /> -->
     <title>TrackFlow</title>
   </head>
   <body>
-    <!-- <div id="loginPage">
-        <section class="title">
-            <h1>TrackFlow</h1>
-            <aside>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </aside>
-        </section>
-    
-        <form action="#" id="loginForm"> -->
-    <!-- <section class="input-group">    -->
-    <!-- <span class="form-error-message"></span>
-                <input type="email" name="email" autofocus placeholder="Username or email">
-                <span class="input-error-message"></span>
-
-                <input type="password" name="password" id="password" placeholder="Password">
-                <span class="input-error-message"></span>
-
-                <button type="submit">Login</button>
-                <article class="button-group">
-                    <button class="btn forgot">Forgot your password?</button>
-                    <button class="btn no-account" id="linkCreateAccount">Don't have an account?</button>
-                </article> -->
-    <!-- </section> -->
-    <!-- </form>
-
-        <form action="#" class="hidden" id="createAccountForm">
-            <span class="error-message"></span>
-            <section class="input-group">
-                <input type="text" name="username" id="username" autofocus placeholder="Username">
-                <span class="input-error-message"></span>
-
-                <input type="email" name="email" autofocus placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
-                <span class="input-error-message"></span>
-
-                <input type="password" name="password" placeholder="Confirm password">
-                <button type="submit">Create account</button>
-            </section>
-        </form>
-    </div> -->
-    <div id="loginPage" style="display: none">
+    <div id="loginPage">
       <section class="title">
         <h1>TrackFlow</h1>
         <aside>
@@ -73,7 +23,9 @@
         </aside>
       </section>
       <section class="container">
+        <!-- Login form -->
         <form action="#" id="loginForm">
+          <h2 class="form-title">Log in</h2>
           <span class="form-message form-message-error"></span>
           <section class="input-group">
             <input
@@ -101,15 +53,12 @@
             >
           </section>
         </form>
-        <form class="form-hidden" id="createAccountForm">
-          <h1>Create Account</h1>
+        <!-- Create account form -->
+        <form class="hidden" id="createAccountForm">
+          <h2 class="form-title">Create Account</h2>
           <span class="form-message form-message-error"></span>
           <section class="input-group">
-            <input type="text" class="input" autofocus placeholder="Username" />
-            <span class="input-error-message"></span>
-          </section>
-          <section class="input-group">
-            <input type="email" class="input" placeholder="Email" />
+            <input type="email" class="input" autofocus placeholder="Email" />
             <span class="input-error-message"></span>
           </section>
           <section class="input-group">
@@ -126,15 +75,15 @@
           </section>
           <button class="form-button" type="submit">Continue</button>
           <section class="link-text">
-            <button class="link account" id="linkLogin">
+            <a class="link account" id="linkLogin">
               Already have an account? Sign in
-            </button>
+            </a>
           </section>
         </form>
       </section>
     </div>
     <!-- main page -->
-    <div id="mainPage">
+    <div id="mainPage" style="display: none;">
       <nav>
         <a href="#/page1">Chart</a>
         <a href="#/page2">Create Party</a>
@@ -153,7 +102,7 @@
                 <span></span>
               </aside>
             <article>
-                <a href="#/page1" class="home">Home</a> <!--home btn star with dispaly none, toggle between home and profile-->
+                <a href="#/page1" class="home">Home</a> <!--home btn star with display none, toggle between home and profile-->
                 <a href="#/page3" class="profile">Profile</a>
             </article>
         </header>
@@ -161,5 +110,7 @@
       </main>
       <div id="app"></div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

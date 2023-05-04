@@ -24,13 +24,13 @@ render();
 // Login Code
 const loginForm = $("#loginForm");
 const createAccount = $("#createAccountForm");
-// let users = new Map();
+let users = null;
 
 // Loading data from JSON file
-// $.getJSON("http://localhost:8070/data/user.json", (data) => {
-    //   users = data;
-    //   console.log(users);
-    // });
+$.getJSON("http://localhost:8070/data/user.json", (data) => {
+      users = data;
+      console.log(users);
+    });
     // Checking user's credentials
 loginForm.submit((e) => {
     e.preventDefault();

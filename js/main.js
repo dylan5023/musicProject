@@ -5,7 +5,7 @@ import User from "./user.js";
 
 const page1 = /* html */ `
     <article class = "page1">
-        <h1> Home</h1>
+        <h1> Home</h1>만
     </article>`;
 const page2 = /* html */ `
     <article class = "page2">
@@ -38,43 +38,40 @@ const createAccount = $("#createAccountForm");
 let users = null;
 
 // Loading data from JSON file
-$.getJSON("http://localhost:8081/data/user.json",(data)=>{
-    users = data;
-    console.log(users);
+$.getJSON("http://localhost:8080/data/user.json", (data) => {
+  users = data;
+  console.log(users);
 });
 // Checking user's credentials
 loginForm.submit((e) => {
-    e.preventDefault();
-    users.forEach((user) => {
-        if(user.email == $(".input").eq(0).val() && user.password == $(".input").eq(1).val()){
-            $("#loginPage").hide();
-            $("#mainPage").show();
-        }
-    })
+  e.preventDefault();
+  users.forEach((user) => {
+    if (
+      user.email == $(".input").eq(0).val() &&
+      user.password == $(".input").eq(1).val()
+    ) {
+      $("#loginPage").hide();
+      $("#mainPage").show();
+    }
+  });
 });
 // Hide login and display create account form
 $(".noaccount").click((e) => {
-    e.preventDefault();
-    loginForm.hide();
-    createAccount.show();
+  e.preventDefault();
+  loginForm.hide();
+  createAccount.show();
 });
 // Hide create account and display login form
 $(".account").click((e) => {
-    e.preventDefault();
-    createAccount.hide();
-    loginForm.show();
+  e.preventDefault();
+  createAccount.hide();
+  loginForm.show();
 });
 
-function setFormMessage(formSelector, type, message) {
-    const messageElement = document.querySelector(`${formSelector} .form-message`);
-
-    messageElement.textContent = message;
-    messageElement.classList.add(`form-message-${type}`);
-    messageElement.classList.remove("form-message-success", "form-message-error");
-}
-
-loginForm.submit((e) => {
-    e.preventDefault();
-    setFormMessage("#loginForm","error","Invalid email/password combination");
-})
-    
+fetch("http://localhost:8080/data/user.json")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    // do something with the data
+  })
+  .catch((error) => console.log(error));

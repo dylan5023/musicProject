@@ -29,13 +29,13 @@ const createAccount = $("#createAccountForm");
 // Checking user's credentials
 // Loading data from JSON file
 // $.getJSON("http://localhost:8070/data/user.json", (data) => {
-    //   users = data;
-    //   console.log(users);
-    // });
-    // Checking user's credentials
+//   users = data;
+//   console.log(users);
+// });
+// Checking user's credentials
 loginForm.submit((e) => {
-    e.preventDefault();
-    users.forEach((user) => {
+  e.preventDefault();
+  users.forEach((user) => {
     if (
       user.email == $(".input").eq(0).val() &&
       user.password == $(".input").eq(1).val()
@@ -47,12 +47,12 @@ loginForm.submit((e) => {
 });
 
 createAccount.submit((e) => {
-    e.preventDefault();
-    let input = $(".input");
-    users.forEach((user) => {
-        let newUser = new User()
-    })
-})
+  e.preventDefault();
+  let input = $(".input");
+  users.forEach((user) => {
+    let newUser = new User();
+  });
+});
 
 // Hide login and display create account form
 $(".noaccount").click((e) => {
@@ -85,4 +85,3 @@ getData()
   .catch((error) => {
     console.log(error);
   });
-console.log(listOfuser);

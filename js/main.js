@@ -27,11 +27,6 @@ const createAccount = $("#createAccountForm");
 let users = null;
 let loginUser;
 
-// Loading data from JSON file
-$.getJSON("http://localhost:8080/data/user.json", (data) => {
-  users = data;
-  console.log(users);
-});
 // Checking user's credentials
 loginForm.submit((e) => {
   e.preventDefault();
@@ -58,10 +53,22 @@ $(".account").click((e) => {
   loginForm.show();
 });
 
-fetch("http://localhost:8080/data/user.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
+// get data from server
+async function getData() {
+  try {
+    const response = await fetch("http://localhost:8070/users");
+    const userList = await response.json();
+    return userList;
     // do something with the data
+  } catch (error) {
+    console.log(error);
+  }
+}
+getData()
+  .then((userList) => {
+    console.log(userList);
   })
-  .catch((error) => console.log(error));
+  .catch((error) => {
+    console.log(error);
+  });
+console.log(listOfuser);

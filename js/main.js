@@ -21,7 +21,6 @@ const render = () => {
 window.addEventListener("popstate", render);
 
 render();
-
 // Login Code
 const loginForm = $("#loginForm");
 const createAccount = $("#createAccountForm");

@@ -28,11 +28,11 @@ const createAccount = $("#createAccountForm");
 
 // Checking user's credentials
 // Loading data from JSON file
-// let users = null;
-// $.getJSON("http://localhost:8070/users", (data) => {
-//   users = data;
-//   console.log(users);
-// });
+let users = null;
+$.getJSON("http://localhost:8070/users", (data) => {
+  users = data;
+  console.log(users);
+});
 // Checking user's credentials
 loginForm.submit((e) => {
   e.preventDefault();

@@ -10,10 +10,10 @@ function exportJsonPicture() {
   return fileManager.readFileSync(filePath, "utf-8");
 }
 const express = require("express");
-const PORT = 5000;
+const PORT = 8070;
 const app = express();
-const http = require("http");
-const { createProxyMiddleware } = require("http-proxy-middleware");
+// const http = require("http");
+// const { createProxyMiddleware } = require("http-proxy-middleware");
 
 app.use(cors());
 

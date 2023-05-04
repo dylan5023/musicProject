@@ -12,6 +12,8 @@ function exportJsonPicture() {
 const express = require("express");
 const PORT = 8080;
 const app = express();
+const http = require("http");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 app.use(cors());
 
@@ -30,6 +32,14 @@ app.use((req, res, next) => {
 app.get("/users", (req, res) => {
   res.status(200).json(JSON.parse(exportJsonPicture()));
 });
+
+const webpackProxy = createProxyMiddleware({
+  target: "http://localhost:8080",
+  changeOrigin: true,
+  ws: true,
+});
+app.use(webpackProxy);
+const server = http.createServer(app);
 
 app.listen(PORT, () => {
   console.log(`Running on port ${PORT}`);

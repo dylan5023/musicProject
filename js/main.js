@@ -5,7 +5,7 @@ import User from "./user.js";
 
 const page1 = /* html */ `
     <article class = "page1">
-        <h1> Home</h1>만
+        <h1> Home</h1>
     </article>`;
 const page2 = /* html */ `
     <article class = "page2">
@@ -55,6 +55,14 @@ loginForm.submit((e) => {
     }
   });
 });
+
+createAccount.submit((e) => {
+    e.preventDefault();
+    users.forEach((user) => {
+        
+    })
+})
+
 // Hide login and display create account form
 $(".noaccount").click((e) => {
   e.preventDefault();

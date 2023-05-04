@@ -1,31 +1,33 @@
+import { node } from "prop-types";
 import "../scss/style.scss";
 import User from "./user.js";
+import { useEffect, useState} from "react";
 
 // Single Page Aplication
 
 const page1 = /* html */ `
-    <article class = "page1">
-        <h1> Home</h1>
-    </article>`;
+<article class = "page1">
+<h1> Home</h1>
+</article>`;
 const page2 = /* html */ `
-    <article class = "page2">
-        <h1> Create a Party</h1>
-    </article>`;
+<article class = "page2">
+<h1> Create a Party</h1>
+</article>`;
 const page3 = /* html */ `
-    <article class = "page3">
-        <h1> Profile</h1>
-    </article>`;
+<article class = "page3">
+<h1> Profile</h1>
+</article>`;
 
 const pages = [
-  { path: "#/page1", template: page1 },
-  { path: "#/page2", template: page2 },
-  { path: "#/page3", template: page3 },
+    { path: "#/page1", template: page1 },
+    { path: "#/page2", template: page2 },
+    { path: "#/page3", template: page3 },
 ];
 const appEl = document.querySelector("#app");
 
 const render = () => {
-  const page = pages.find((page) => page.path === location.hash);
-  appEl.innerHTML = page ? page.template : page1;
+    const page = pages.find((page) => page.path === location.hash);
+    appEl.innerHTML = page ? page.template : page1;
 };
 
 window.addEventListener("popstate", render);
@@ -35,17 +37,17 @@ render();
 // Login Code
 const loginForm = $("#loginForm");
 const createAccount = $("#createAccountForm");
-let users = null;
+// let users = new Map();
 
 // Loading data from JSON file
-$.getJSON("http://localhost:8080/data/user.json", (data) => {
-  users = data;
-  console.log(users);
-});
-// Checking user's credentials
+// $.getJSON("http://localhost:8070/data/user.json", (data) => {
+    //   users = data;
+    //   console.log(users);
+    // });
+    // Checking user's credentials
 loginForm.submit((e) => {
-  e.preventDefault();
-  users.forEach((user) => {
+    e.preventDefault();
+    users.forEach((user) => {
     if (
       user.email == $(".input").eq(0).val() &&
       user.password == $(".input").eq(1).val()
@@ -58,8 +60,9 @@ loginForm.submit((e) => {
 
 createAccount.submit((e) => {
     e.preventDefault();
+    let input = $(".input");
     users.forEach((user) => {
-        
+        let newUser = new User()
     })
 })
 
@@ -76,10 +79,3 @@ $(".account").click((e) => {
   loginForm.show();
 });
 
-fetch("http://localhost:8080/data/user.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    // do something with the data
-  })
-  .catch((error) => console.log(error));

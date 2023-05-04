@@ -1,3 +1,4 @@
+import { node } from "prop-types";
 import "../scss/style.scss";
 import User from "./user.js";
 import Profile from "./componets/Profile";
@@ -20,17 +21,21 @@ const render = () => {
 window.addEventListener("popstate", render);
 
 render();
-
 // Login Code
 const loginForm = $("#loginForm");
 const createAccount = $("#createAccountForm");
-let users = null;
-let loginUser;
+// let users = new Map();
 
 // Checking user's credentials
+// Loading data from JSON file
+// $.getJSON("http://localhost:8070/data/user.json", (data) => {
+    //   users = data;
+    //   console.log(users);
+    // });
+    // Checking user's credentials
 loginForm.submit((e) => {
-  e.preventDefault();
-  users.forEach((user) => {
+    e.preventDefault();
+    users.forEach((user) => {
     if (
       user.email == $(".input").eq(0).val() &&
       user.password == $(".input").eq(1).val()
@@ -40,6 +45,15 @@ loginForm.submit((e) => {
     }
   });
 });
+
+createAccount.submit((e) => {
+    e.preventDefault();
+    let input = $(".input");
+    users.forEach((user) => {
+        let newUser = new User()
+    })
+})
+
 // Hide login and display create account form
 $(".noaccount").click((e) => {
   e.preventDefault();

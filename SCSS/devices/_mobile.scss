@@ -160,6 +160,18 @@
     cursor: pointer;
   }
 
+  .form-message {
+    text-align: center;
+}
+
+  .form-message-error {
+      color: red;
+  }
+
+  .form-message-success {
+      color: green;
+  }
+
   // main page
   
   .home {

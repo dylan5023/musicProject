@@ -25,15 +25,14 @@ render();
 // Login Code
 const loginForm = $("#loginForm");
 const createAccount = $("#createAccountForm");
-let users = new Map();
+let userList = new Map();
+let users = null;
+let userId = 1000;
 
-// Checking user's credentials
 // Loading data from JSON file
-// let users = null;
-// $.getJSON("http://localhost:8070/users", (data) => {
-//   users = data;
-//   console.log(users);
-// });
+$.getJSON("http://localhost:8070/users", (data) => {
+  users = data;
+});
 // Checking user's credentials
 loginForm.submit((e) => {
   e.preventDefault();
@@ -45,20 +44,29 @@ loginForm.submit((e) => {
       $("#loginPage").hide();
       $("#mainPage").show();
     }
+    setFormMessage("#loginForm", "error", "Invalid email/password combination");
   });
 });
-
+//Creating a new user
 createAccount.submit((e) => {
     e.preventDefault();
-    let name = $(".input").eq(0).val();
-    let password = $(".input").eq(1).val();
-    let password2 = $(".input").eq(2).val();
-
-    let newUser = new User(name,password,password2)
-    users.set(newUser);
-    $("#mainPage").show();
+    const name = $(".input").eq(0).val();
+    const password = $(".input").eq(1).val();
+    const confirmPassword = $(".input").eq(2).val();  
+    userId += userList.size;
+	
+	 // Input error message
+	 if($("#password1").val() !== $("#password2").val()){
+		$(".form-message").text("Passwords do not match");
+		$(".form-message").addClass("form-message-error");
+	 } else {
+		 let newUser = new User(userId,name,password, confirmPassword);
+		 userList.set(newUser);
+		 $("#loginPage").hide();
+		 $("#mainPage").show();
+		 console.log(newUser);
+	 }
 })
-
 // Hide login and display create account form
 $(".noaccount").click((e) => {
   e.preventDefault();
@@ -71,6 +79,16 @@ $(".account").click((e) => {
   createAccount.hide();
   loginForm.show();
 });
+
+// Setting the form message
+function setFormMessage(formElement, type, message) {
+  const messageElement = $(`${formElement} .form-message`);
+
+  messageElement.text(message);
+  messageElement.removeClass("form-message-success", "form-message-error");
+  messageElement.addClass(`form-message-${type}`);
+}
+
 
 // get data from server
 // async function getData() {

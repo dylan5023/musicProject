@@ -36,18 +36,17 @@ render();
 const loginForm = $("#loginForm");
 const createAccount = $("#createAccountForm");
 let users = null;
-let loginUser;
 
 // Loading data from JSON file
-$.getJSON("http://localhost:8080/data/user.json",(data)=>{
+$.getJSON("http://localhost:8081/data/user.json",(data)=>{
     users = data;
     console.log(users);
 });
 // Checking user's credentials
 loginForm.submit((e) => {
     e.preventDefault();
-    users.forEach((user)=>{
-    if(user.email == $(".input").eq(0).val() && user.password == $(".input").eq(1).val()){
+    users.forEach((user) => {
+        if(user.email == $(".input").eq(0).val() && user.password == $(".input").eq(1).val()){
             $("#loginPage").hide();
             $("#mainPage").show();
         }
@@ -66,3 +65,16 @@ $(".account").click((e) => {
     loginForm.show();
 });
 
+function setFormMessage(formSelector, type, message) {
+    const messageElement = document.querySelector(`${formSelector} .form-message`);
+
+    messageElement.textContent = message;
+    messageElement.classList.add(`form-message-${type}`);
+    messageElement.classList.remove("form-message-success", "form-message-error");
+}
+
+loginForm.submit((e) => {
+    e.preventDefault();
+    setFormMessage("#loginForm","error","Invalid email/password combination");
+})
+    

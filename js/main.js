@@ -28,7 +28,8 @@ const createAccount = $("#createAccountForm");
 
 // Checking user's credentials
 // Loading data from JSON file
-// $.getJSON("http://localhost:8070/data/user.json", (data) => {
+// let users = null;
+// $.getJSON("http://localhost:8070/users", (data) => {
 //   users = data;
 //   console.log(users);
 // });
@@ -68,20 +69,20 @@ $(".account").click((e) => {
 });
 
 // get data from server
-async function getData() {
-  try {
-    const response = await fetch("http://localhost:8070/users");
-    const userList = await response.json();
-    return userList;
-    // do something with the data
-  } catch (error) {
-    console.log(error);
-  }
-}
-getData()
-  .then((userList) => {
-    console.log(userList);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// async function getData() {
+//   try {
+//     const response = await fetch("http://localhost:8070/users");
+//     const userList = await response.json();
+//     return userList;
+//     // do something with the data
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// getData()
+//   .then((userList) => {
+//     console.log(userList);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });

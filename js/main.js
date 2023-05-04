@@ -21,17 +21,18 @@ const render = () => {
 window.addEventListener("popstate", render);
 
 render();
+
 // Login Code
 const loginForm = $("#loginForm");
 const createAccount = $("#createAccountForm");
-// let users = new Map();
+let users = new Map();
 
 // Loading data from JSON file
-// $.getJSON("http://localhost:8070/data/user.json", (data) => {
-    //   users = data;
-    //   console.log(users);
-    // });
-    // Checking user's credentials
+$.getJSON("http://localhost:8070/data/user.json", (data) => {
+      users = data;
+      console.log(users);
+    });
+// Checking user's credentials
 loginForm.submit((e) => {
     e.preventDefault();
     users.forEach((user) => {
@@ -47,10 +48,13 @@ loginForm.submit((e) => {
 
 createAccount.submit((e) => {
     e.preventDefault();
-    let input = $(".input");
-    users.forEach((user) => {
-        let newUser = new User()
-    })
+    let name = $(".input").eq(0).val();
+    let password = $(".input").eq(1).val();
+    let password2 = $(".input").eq(2).val();
+
+    let newUser = new User(name,password,password2)
+    users.set(newUser);
+    $("#mainPage").show();
 })
 
 // Hide login and display create account form

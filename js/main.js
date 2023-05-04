@@ -26,15 +26,17 @@ const loginForm = $("#loginForm");
 const createAccount = $("#createAccountForm");
 // let users = new Map();
 
+// Checking user's credentials
 // Loading data from JSON file
-// $.getJSON("http://localhost:8070/data/user.json", (data) => {
-    //   users = data;
-    //   console.log(users);
-    // });
-    // Checking user's credentials
+// let users = null;
+// $.getJSON("http://localhost:8070/users", (data) => {
+//   users = data;
+//   console.log(users);
+// });
+// Checking user's credentials
 loginForm.submit((e) => {
-    e.preventDefault();
-    users.forEach((user) => {
+  e.preventDefault();
+  users.forEach((user) => {
     if (
       user.email == $(".input").eq(0).val() &&
       user.password == $(".input").eq(1).val()
@@ -46,12 +48,12 @@ loginForm.submit((e) => {
 });
 
 createAccount.submit((e) => {
-    e.preventDefault();
-    let input = $(".input");
-    users.forEach((user) => {
-        let newUser = new User()
-    })
-})
+  e.preventDefault();
+  let input = $(".input");
+  users.forEach((user) => {
+    let newUser = new User();
+  });
+});
 
 // Hide login and display create account form
 $(".noaccount").click((e) => {
@@ -66,3 +68,21 @@ $(".account").click((e) => {
   loginForm.show();
 });
 
+// get data from server
+// async function getData() {
+//   try {
+//     const response = await fetch("http://localhost:8070/users");
+//     const userList = await response.json();
+//     return userList;
+//     // do something with the data
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// getData()
+//   .then((userList) => {
+//     console.log(userList);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });

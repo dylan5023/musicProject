@@ -69,7 +69,7 @@ $(".account").click((e) => {
   loginForm.show();
 });
 
-fetch("http://localhost:8080/data/user.json")
+fetch("http://localhost:8070/users")
   .then((response) => response.json())
   .then((data) => {
     console.log(data);

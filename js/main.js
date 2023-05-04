@@ -30,8 +30,10 @@ let users = null;
 let userId = 1000;
 
 // Loading data from JSON file
+let users = null;
 $.getJSON("http://localhost:8070/users", (data) => {
   users = data;
+  console.log(users);
 });
 // Checking user's credentials
 loginForm.submit((e) => {

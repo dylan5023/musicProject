@@ -1,33 +1,21 @@
 import { node } from "prop-types";
 import "../scss/style.scss";
 import User from "./user.js";
-import { useEffect, useState} from "react";
-
+import Profile from "./componets/Profile";
+import CreateParty from "./componets/CreateParty";
+import Chart from "./componets/Chart";
 // Single Page Aplication
 
-const page1 = /* html */ `
-<article class = "page1">
-<h1> Home</h1>
-</article>`;
-const page2 = /* html */ `
-<article class = "page2">
-<h1> Create a Party</h1>
-</article>`;
-const page3 = /* html */ `
-<article class = "page3">
-<h1> Profile</h1>
-</article>`;
-
 const pages = [
-    { path: "#/page1", template: page1 },
-    { path: "#/page2", template: page2 },
-    { path: "#/page3", template: page3 },
+  { path: "#/page1", template: Chart },
+  { path: "#/page2", template: CreateParty },
+  { path: "#/page3", template: Profile },
 ];
 const appEl = document.querySelector("#app");
 
 const render = () => {
-    const page = pages.find((page) => page.path === location.hash);
-    appEl.innerHTML = page ? page.template : page1;
+  const page = pages.find((page) => page.path === location.hash);
+  appEl.innerHTML = page ? page.template : Chart;
 };
 
 window.addEventListener("popstate", render);

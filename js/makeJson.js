@@ -13,7 +13,9 @@ function csvToJSON(csv_string) {
     let row = rows[i].split(",");
 
     for (let j = 1; j < header.length; j++) {
-      obj[header[j]] = row[j];
+      if (j == 1 || j == 2 || j == 3 || j == 4 || j == 6 || j == 7 || j == 20) {
+        obj[header[j]] = row[j];
+      }
     }
 
     jsonArray.push(obj);
@@ -26,7 +28,7 @@ function csvToJSON(csv_string) {
 
 const fs = require("fs");
 
-const file_csv = fs.readFileSync("../static/data/track.csv", "utf8");
+const file_csv = fs.readFileSync("../static/data/dataset 3.csv", "utf8");
 const string_csv = file_csv.toString();
 // console.log(string_csv);
 
@@ -34,4 +36,4 @@ const arr_json = csvToJSON(string_csv);
 console.log(arr_json);
 // const string_json = JSON.stringify(arr_json);
 
-fs.writeFileSync("track.json", JSON.stringify(arr_json), "utf-8");
+fs.writeFileSync("tracks.json", JSON.stringify(arr_json), "utf-8");

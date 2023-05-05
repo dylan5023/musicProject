@@ -2,22 +2,22 @@ import React from "react";
 // import "./scss/style.scss";
 import LoginPage from "./components/Login";
 import MainPage from "./components/Main";
-import { Page1 } from "./components/Page1";
-import { Page2 } from "./components/Page2";
-import { Page3 } from "./components/Page3";
+import { Charts } from "./components/Charts";
+import { CreateParty } from "./components/CreateParty";
+import { Profile } from "./components/Profile";
 
 const pages = [
   {
     path: "#/page1",
-    template: <Page1 />,
+    template: <Charts />,
   },
   {
     path: "#/page2",
-    template: <Page2 />,
+    template: <CreateParty />,
   },
   {
     path: "#/page3",
-    template: <Page3 />,
+    template: <Profile />,
   },
 ];
 
@@ -27,7 +27,7 @@ const App = () => {
   React.useEffect(() => {
     const handleHashChange = () => {
       const page = pages.find((page) => page.path === window.location.hash);
-      setCurrentPage(page ? page.template : <Page1 />);
+      setCurrentPage(page ? page.template : <Charts />);
     };
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
@@ -36,7 +36,7 @@ const App = () => {
   return (
     <>
       <LoginPage />
-      <MainPage currentPage={currentPage}/>
+      <MainPage currentPage={currentPage} />
     </>
   );
 };

@@ -33,6 +33,8 @@ module.exports = {
   plugins: [
     new HtmlPlugin({
       template: "./index.html",
+      hash: true,
+      favicon: "./static/favicon.ico",
     }),
     new CopyPlugin({
       patterns: [{ from: "static" }],

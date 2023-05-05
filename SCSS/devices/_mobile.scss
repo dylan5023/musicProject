@@ -162,23 +162,23 @@
 
   .form-message {
     text-align: center;
-}
+  }
 
   .form-message-error {
-      color: red;
+    color: red;
   }
 
   .form-message-success {
-      color: green;
+    color: green;
   }
 
   // main page
-  
+
   .home {
     //display none cuz we start in charts
     display: none;
   }
-  #mainPage{
+  #mainPage {
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -190,8 +190,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  
-    [type=submit],
+
+    [type="submit"],
     a {
       background-color: $btnColor;
       text-decoration: none;
@@ -208,7 +208,6 @@
       width: 100%;
       height: 5%;
       align-items: center;
-
     }
 
     div {
@@ -216,7 +215,7 @@
       width: 100%;
       @include DisplayCenter;
 
-      select{
+      select {
         font-size: 18px;
         background-color: transparent;
         outline: none;
@@ -234,18 +233,18 @@
     }
   }
   .btnLeft,
-  .btnRight{
+  .btnRight {
     width: 15vw;
     text-align: center;
   }
-  .btnRight{
+  .btnRight {
     display: flex;
-    a{
+    a {
       width: 100%;
       height: 100%;
     }
   }
-  .btnBottom{
+  .btnBottom {
     padding: 2vh;
     width: 50vw;
     text-align: center;
@@ -253,5 +252,40 @@
 
   .form-messagae {
     color: red;
+  }
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+
+  body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

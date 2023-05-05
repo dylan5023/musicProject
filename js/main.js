@@ -3,8 +3,12 @@ import "../scss/style.scss";
 import User from "./user.js";
 import Profile from "./componets/Profile";
 import CreateParty from "./componets/CreateParty";
-import Chart from "./componets/Chart";
+// import Chart from "./componets/Chart";
 // Single Page Aplication
+const Chart = /* html */ `
+    <article class = "page1">
+        <h1> Home</h1>
+    </article>`;
 
 const pages = [
   { path: "#/page1", template: Chart },
@@ -12,7 +16,6 @@ const pages = [
   { path: "#/page3", template: Profile },
 ];
 const appEl = document.querySelector("#app");
-
 const render = () => {
   const page = pages.find((page) => page.path === location.hash);
   appEl.innerHTML = page ? page.template : Chart;

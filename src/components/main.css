@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--fontFamily);
+}
+
+:root {
+    --mainColor: #4C00A4;
+    --secColor: rgb(187, 160, 202);
+    --blackColor: #0C120C;
+    --btnColor: #C3C3E6;
+    --textColor: #D1C8E1;
+    --fontFamily: 'Cairo', sans-serif;
+}
+
+@media (min-width: 300px) {
+
+    @keyframes Music {
+        50% {
+            height: 20%;
+        }
+
+        100% {
+            height: 100%;
+        }
+    }
+
+    main {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+
+
+    }
+
+    main [type="submit"],
+    main a {
+        background-color: var(--btnColor);
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        box-shadow: 0 0 5px var(--blackColor);
+        color: var(--blackColor);
+    }
+
+    main header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 5%;
+        align-items: center;
+    }
+
+    main div {
+        height: 75%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    main div select {
+        font-size: 18px;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid var(--btnColor);
+        width: 250px;
+        border-radius: 5px;
+    }
+
+    main footer {
+        height: 20%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btnLeft,
+    .btnRight {
+        width: 15vw;
+        text-align: center;
+    }
+
+    .btnRight {
+        display: flex;
+    }
+
+    .btnRight a {
+        width: 100%;
+        height: 100%;
+    }
+
+    .btnBottom {
+        padding: 2vh;
+        width: 50vw;
+        text-align: center;
+    }
+}

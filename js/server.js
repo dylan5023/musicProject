@@ -1,6 +1,7 @@
 const fileManager = require("fs");
 const cors = require("cors");
 const filePath = "../static/data/user.json";
+const trackFile = "../static/data/track.json";
 // // require server.js
 // require("./server.js");
 
@@ -8,6 +9,9 @@ const filePath = "../static/data/user.json";
 
 function exportJsonPicture() {
   return fileManager.readFileSync(filePath, "utf-8");
+}
+function exportTrackList() {
+  return fileManager.readFileSync(trackFile, "utf-8");
 }
 const express = require("express");
 const PORT = 8070;
@@ -31,6 +35,10 @@ app.use((req, res, next) => {
 
 app.get("/users", (req, res) => {
   res.status(200).json(JSON.parse(exportJsonPicture()));
+});
+
+app.get("/tracks", (req, res) => {
+  res.status(200).json(JSON.parse(exportTrackList()));
 });
 
 // const webpackProxy = createProxyMiddleware({

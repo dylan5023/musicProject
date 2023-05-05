@@ -9,12 +9,18 @@
       height: 100%;
     }
   }
+  body {
+    width: 100vw;
+    height: 100vh;
+    // display: flex;
+    background-image: linear-gradient(45deg, $mainColor, $secColor);
+  }
 
   #loginPage {
     @include DisplayCenter;
     flex-direction: column;
     row-gap: 10vh;
-  }
+  
 
   .container {
     @include DisplayCenter;
@@ -23,12 +29,7 @@
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
   }
 
-  body {
-    width: 100vw;
-    height: 100vh;
-    // display: flex;
-    background-image: linear-gradient(45deg, $mainColor, $secColor);
-  }
+
 
   .title {
     @include DisplayColumn(2vh);
@@ -159,7 +160,7 @@
     border: none;
     cursor: pointer;
   }
-
+  }
   // main page
   
   .home {
@@ -241,5 +242,39 @@
 
   .form-messagae {
     color: red;
+  }
+
+  // Party
+  #party{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    header{
+      height: 5%;
+      @include DisplayCenter;
+    }
+
+    section{
+      height: 85%;
+      @include DisplayCenter;
+    }
+
+    footer{
+      height: 10%;
+      @include DisplayCenter;
+    }
+
+    ul{
+      @include DisplayColumn(2vh);
+    }
+
+    summary{
+      position: absolute;
+      display: flex;
+      justify-content: right;
+      width: 100%;
+    }
   }
 }

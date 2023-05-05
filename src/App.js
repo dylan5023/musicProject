@@ -1,5 +1,5 @@
 import React from "react";
-import "./scss/style.scss";
+// import "./scss/style.scss";
 import LoginPage from "./components/Login";
 
 const Page1 = () => {

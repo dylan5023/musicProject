@@ -1,22 +1,10 @@
 import React from "react";
 // import "./scss/style.scss";
 import LoginPage from "./components/Login";
-
-const Page1 = () => {
-  return <h2>Home Page</h2>;
-};
-
-const Page2 = () => {
-  return <h2>Create Playlist Page</h2>;
-};
-
-const Page3 = () => {
-  return <h2>Profile Page</h2>;
-};
-
-const Chart = () => {
-  return <h2>Chart Page</h2>;
-};
+import MainPage from "./components/Main";
+import { Page1 } from "./components/Page1";
+import { Page2 } from "./components/Page2";
+import { Page3 } from "./components/Page3";
 
 const pages = [
   {
@@ -39,7 +27,7 @@ const App = () => {
   React.useEffect(() => {
     const handleHashChange = () => {
       const page = pages.find((page) => page.path === window.location.hash);
-      setCurrentPage(page ? page.template : <Chart />);
+      setCurrentPage(page ? page.template : <Page1 />);
     };
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
@@ -48,38 +36,7 @@ const App = () => {
   return (
     <>
       <LoginPage />
-      <div id="mainPage">
-        <main>
-          <header>
-            <a href="#/" className="btnLeft">
-              Help
-            </a>
-            <aside>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </aside>
-            <article className="btnRight">
-              <a href="#/page1" className="home">
-                Home
-              </a>
-              <a href="#/page3" className="profile">
-                Profile
-              </a>
-            </article>
-          </header>
-          <div id="app">{currentPage}</div>
-          <footer>
-            <a href="#/page2" className="btnBottom">
-              Create Playlist
-            </a>
-          </footer>
-        </main>
-      </div>
+      <MainPage currentPage={currentPage}/>
     </>
   );
 };

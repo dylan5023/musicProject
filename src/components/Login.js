@@ -24,40 +24,66 @@ function Login() {
   };
 
   return (
-    <div className="login">
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      {showCreateAccount ? (
-        <form onSubmit={handleCreateAccount}>
-          <label htmlFor="newEmail">Email:</label>
-          <input type="email" id="newEmail" required />
-          <label htmlFor="newPassword">Password:</label>
-          <input type="password" id="newPassword" required />
-          <button type="submit">Create Account</button>
-        </form>
-      ) : (
-        <button onClick={() => setShowCreateAccount(true)}>
-          Create Account
-        </button>
-      )}
+    <div id="loginPage">
+      <section className="title">
+        <h1>TrackFlow</h1>
+        <aside>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </aside>
+      </section>
+      {/* Login form */}
+		<section className = "container">
+			<form action="#" id="loginForm">
+				<h2 className="form-title">Log in</h2>
+				<span className="form-message form-message-error"></span>
+				<section className="input-group">
+					<input type="text" className="input" autofocus placeholder="Email" />
+					<span className="input-error-message"></span>
+				</section>
+				<section className="input-group">
+					<input
+					type="password"
+					className="input input-error"
+					placeholder="Password"
+					/>
+					<span className="input-error-message"></span>
+				</section>
+				<button className="submit-button" type="submit">Continue</button>
+				<section className="link-group">
+					<a className="link forgot">Forgot your password?</a>
+					<a className="link noaccount" id="linkCreateAccount">
+						Don't have an account? Create account
+					</a>
+				</section>
+			</form>
+			{/* Create account form */}
+			<form className="hidden" id="createAccountForm">
+				<h2 className="form-title">
+					Create Account
+				</h2>
+				<span className="form-message form-message-error"></span>
+				<section className="input-group">
+					<input type="email" className="input" autofocus placeholder="Email" />
+					<span className="input-error-message"></span>
+				</section>
+				<section className="input-group">
+					<input type="password" id="password1" className="input input-error" placeholder="Password"/>
+					<span className="input-error-message"></span>
+				</section>
+				<button className="form-button" type="submit">Continue</button>
+					<section className="link-text">
+						<a className="link account" id="linkLogin">
+							Already have an account? Sign in
+						</a>
+					</section>
+			</form>
+		</section>
     </div>
   );
 }

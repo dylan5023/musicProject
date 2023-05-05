@@ -30,7 +30,6 @@ let users = null;
 let userId = 1000;
 
 // Loading data from JSON file
-let users = null;
 $.getJSON("http://localhost:8070/users", (data) => {
   users = data;
   console.log(users);
@@ -56,18 +55,21 @@ createAccount.submit((e) => {
     const password = $(".input").eq(1).val();
     const confirmPassword = $(".input").eq(2).val();  
     userId += userList.size;
-	
-	 // Input error message
-	 if($("#password1").val() !== $("#password2").val()){
-		$(".form-message").text("Passwords do not match");
-		$(".form-message").addClass("form-message-error");
-	 } else {
-		 let newUser = new User(userId,name,password, confirmPassword);
-		 userList.set(newUser);
-		 $("#loginPage").hide();
-		 $("#mainPage").show();
-		 console.log(newUser);
-	 }
+	 
+	 //  Input error message
+	 if($("#password1").val() !== $("#password1").val()){
+		 $(".form-message").text("Passwords do not match");
+		 $(".form-message").addClass("form-message-error");
+		} else if(name === "" || password === "" || confirmPassword === ""){
+			setFormMessage("#createAccountForm", "error", "Please fill up the form");
+		} else {
+		  let newUser = new User(userId,name,password, confirmPassword);
+		  userList.set(newUser);
+		  $("#loginPage").hide();
+		  $("#mainPage").show();
+		  console.log(newUser);
+	  }
+
 })
 // Hide login and display create account form
 $(".noaccount").click((e) => {

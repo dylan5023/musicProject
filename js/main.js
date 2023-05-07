@@ -1,5 +1,6 @@
 import { node } from "prop-types";
 import "../scss/style.scss";
+import "../js/party"
 import User from "./user.js";
 import Profile from "./componets/Profile";
 import CreateParty from "./componets/CreateParty";

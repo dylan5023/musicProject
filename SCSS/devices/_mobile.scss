@@ -9,6 +9,20 @@
       height: 100%;
     }
   }
+
+  #loginPage {
+    @include DisplayCenter;
+    flex-direction: column;
+    row-gap: 10vh;
+  }
+
+  .container {
+    @include DisplayCenter;
+    width: 100%;
+    max-height: 65vh;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  }
+
   body {
     width: 100vw;
     height: 100vh;

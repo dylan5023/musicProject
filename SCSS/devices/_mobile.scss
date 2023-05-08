@@ -69,7 +69,7 @@
       }
 
       &:nth-child(2) {
-        animation-delay: 0.3s;
+        animation-delay: 0.2s;
       }
 
       &:nth-child(3) {
@@ -85,7 +85,7 @@
       }
 
       &:nth-child(6) {
-        animation-delay: 0.3s;
+        animation-delay: 0.2s;
       }
 
       &:nth-child(7) {
@@ -210,7 +210,7 @@
       align-items: center;
     }
 
-    div {
+    #app {
       height: 75%;
       width: 100%;
       @include DisplayCenter;
@@ -253,39 +253,188 @@
   .form-messagae {
     color: red;
   }
-  html,
-  body {
-    position: relative;
-    height: 100%;
-  }
 
-  body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-  }
-
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
+  // Chart
+  .warehouse {
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
+    justify-content: center;
+    width: 266px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: aliceblue;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    > .top {
+      color: black;
+      position: absolute;
+      width: 96%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 2%;
+      font-size: 16px;
+      z-index: 5;
+      i {
+        padding: 2% 0;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+    }
+    .cover-image {
+      width: 100%;
+      height: 250px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url("http://localhost:8080/image/pic-1.jpg");
+      background-size: cover;
+      background-position: center;
+      transform-origin: 0% 0%;
+    }
+    .player-body {
+      position: absolute;
+      top: 245px;
+      left: 0;
+      height: 286px;
+      width: 100%;
+      background-color: #0c120c;
+      transition: all 0.2s;
+    }
+    .listWrapper {
+      color: white;
+      height: 425px;
+      width: 100%;
+      overflow: auto;
+      position: absolute;
+      left: 0px;
+      top: 280px;
+      transform-origin: 0% 0%;
+      transition: all 0.2s;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.1);
+      > .list {
+        width: 100%;
+        // border-spacing: 0px 2px;
+      }
+      .nameOfSong {
+        width: 215px;
+        text-align: left;
+        text-indent: 15px;
+        transition: all 0.2s;
+      }
+      tr {
+        height: 50px;
+        // width: 10%;
+        text-align: center;
+        background-color: #1d1d1d;
+        text-indent: 10px;
+        transform-origin: 0% 50%;
+      }
+      tr:last-child td {
+        width: 10%;
+      }
+    }
+    > .current-song-title {
+      position: absolute;
+      right: 23px;
+      font-size: 14px;
+      bottom: 5px;
+      transition: all 0.2s;
+    }
 
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    .info {
+      color: azure;
+      position: absolute;
+      left: 50%;
+      top: 300px;
+      transform: translate(-50%);
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .info h2 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .info h3 {
+      font-size: 10px;
+      color: gainsboro;
+    }
+    .controls {
+      color: aliceblue;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      width: 100%;
+      height: 35px;
+      position: absolute;
+      bottom: 90px;
+      z-index: 10;
+      transition: all 0.2s;
+    }
+    .controls #playpause {
+      font-size: 40px;
+    }
+    .more-controls {
+      color: rgb(153, 152, 152);
+      font-size: 15px;
+      height: 45px;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: absolute;
+      bottom: 5px;
+      left: 5;
+      z-index: 20;
+      transition: all 0.2s;
+    }
+  }
+  .warehouse.active {
+    .cover-image {
+      transform: scale(0.251);
+      left: 10px;
+      top: 34px;
+      border-radius: 20px;
+    }
+    .top {
+      color: black;
+    }
+    .player-body {
+      height: 370px;
+      left: 0;
+      top: 130px;
+    }
+    .current-song-title {
+      color: white;
+    }
+    .listWrapper {
+      top: 140px;
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+    .info {
+      color: black;
+      top: 30px;
+      left: 90px;
+      text-align: left;
+      transform: translate(0);
+    }
+    .controls {
+      position: absolute;
+      width: 216px;
+      bottom: 5px;
+      left: -60px;
+      transform: scale(0.45);
+    }
+    .more-controls {
+      bottom: -60px;
+    }
   }
 }

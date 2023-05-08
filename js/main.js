@@ -1,14 +1,11 @@
 import { node } from "prop-types";
 import "../scss/style.scss";
 import User from "./user.js";
+import Chart from "./componets/Chart";
 import Profile from "./componets/Profile";
 import CreateParty from "./componets/CreateParty";
 // import Chart from "./componets/Chart";
 // Single Page Aplication
-const Chart = /* html */ `
-    <article class = "page1">
-        <h1> Home</h1>
-    </article>`;
 
 const pages = [
   { path: "#/page1", template: Chart },
@@ -100,6 +97,13 @@ function setFormMessage(formElement, type, message) {
   messageElement.removeClass("form-message-success", "form-message-error");
   messageElement.addClass(`form-message-${type}`);
 }
+
+// Chart
+const menuBtn = document.querySelector(".menu-btn");
+const warehouse = document.querySelector(".warehouse");
+menuBtn.addEventListener("click", () => {
+  warehouse.classList.toggle("active");
+});
 
 // get data from server
 // async function getData() {

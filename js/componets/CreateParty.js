@@ -15,10 +15,10 @@ export default CreateParty;
 // };
 
 
-export function Party() {
-    return (
-        <section>
+// export function Party() {
+//     return (
+//         <section>
 
-        </section>
-    );
-};
+//         </section>
+//     );
+// };

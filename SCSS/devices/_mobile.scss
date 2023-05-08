@@ -221,6 +221,12 @@
       width: 100%;
       @include DisplayCenter;
     }
+
+    form{
+      
+      @include DisplayColumn(3vh)
+    }
+
   }
   .btnLeft,
   .btnRight{

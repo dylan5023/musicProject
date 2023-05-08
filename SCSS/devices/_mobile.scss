@@ -94,6 +94,11 @@
     }
   }
 
+  #createAccountForm {
+    height: 70vh;
+    row-gap: 2.5vh;
+  }
+
   form {
     @include DisplayColumn(4vh);
     align-items: center;
@@ -162,7 +167,7 @@
 
   .form-message {
     text-align: center;
-}
+  }
 
   .form-message-error {
       color: red;
@@ -253,5 +258,49 @@
 
   .form-messagae {
     color: red;
+  }
+  
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 70vh;
+    width: 300px;
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem 0 1rem ;
+  }
+
+  .bt {
+    padding: 0;
+    font-size: 15px;
+    width: 32%;
+  }
+
+  .span-group {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+  }
+
+  .followers, .province {
+    letter-spacing: 1px;
+    width: 38%;
+    text-align: center;
+  }
+  
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 1vh;
+    height: 20vh;
+    border-bottom: 2px solid $mainColor;
   }
 }

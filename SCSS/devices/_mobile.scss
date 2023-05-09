@@ -141,7 +141,6 @@
     color: $blackColor;
     font-size: 18px;
   }
-
   .link-group {
     display: flex;
     flex-direction: column;
@@ -267,19 +266,31 @@
     background-color: aliceblue;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
     > .top {
+      border: 5px solid aqua;
       color: black;
       position: absolute;
-      width: 96%;
+      width: 100%;
       height: 100%;
       display: flex;
       justify-content: space-between;
       padding: 2%;
       font-size: 16px;
       z-index: 5;
+      .topInner {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 2%;
+        // border: 5px solid aqua;
+        height: 5%;
+      }
       i {
         padding: 2% 0;
         cursor: pointer;
         transition: all 0.2s;
+      }
+      i.active {
+        color: #4c00a4;
       }
     }
     .cover-image {
@@ -288,10 +299,11 @@
       position: absolute;
       top: 0;
       left: 0;
-      background-image: url("http://localhost:8080/image/pic-1.jpg");
+      background-image: url("http://localhost:8081/image/pic-1.jpg");
       background-size: cover;
       background-position: center;
       transform-origin: 0% 0%;
+      transition: all 0.2s ease-in;
     }
     .player-body {
       position: absolute;
@@ -304,7 +316,7 @@
     }
     .listWrapper {
       color: white;
-      height: 425px;
+      height: 325px;
       width: 100%;
       overflow: auto;
       position: absolute;
@@ -314,6 +326,7 @@
       transition: all 0.2s;
       opacity: 0;
       visibility: hidden;
+      z-index: 25;
       transform: scale(0.1);
       > .list {
         width: 100%;
@@ -326,15 +339,31 @@
         transition: all 0.2s;
       }
       tr {
-        height: 50px;
-        // width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 70px;
         text-align: center;
         background-color: #1d1d1d;
-        text-indent: 10px;
+        text-indent: 20px;
         transform-origin: 0% 50%;
-      }
-      tr:last-child td {
-        width: 10%;
+        font-size: 15px;
+        td {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 12%;
+        }
+        td:last-child {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 25%;
+        }
+        i.active {
+          color: #4c00a4;
+        }
       }
     }
     > .current-song-title {
@@ -343,6 +372,43 @@
       font-size: 14px;
       bottom: 5px;
       transition: all 0.2s;
+    }
+    .bar {
+      position: absolute;
+      width: 90%;
+      height: 2px;
+      top: 440px;
+      left: 50%;
+      transform: translate(-50%);
+      cursor: pointer;
+      background-color: gainsboro;
+      color: white;
+      transform-origin: 0% 0%;
+      transition: all 0.2s;
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #4c00a4;
+        position: relative;
+        top: -4px;
+        left: 0;
+        user-select: none;
+        pointer-events: none;
+        transition: all 0.2s;
+      }
+      .time {
+        width: 100%;
+        position: absolute;
+        top: -20px;
+        left: 0;
+        user-select: none;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.2s;
+      }
     }
 
     .info {
@@ -373,7 +439,7 @@
       height: 35px;
       position: absolute;
       bottom: 90px;
-      z-index: 10;
+      z-index: 30;
       transition: all 0.2s;
     }
     .controls #playpause {
@@ -393,6 +459,9 @@
       left: 5;
       z-index: 20;
       transition: all 0.2s;
+      i.active {
+        color: #4c00a4;
+      }
     }
   }
   .warehouse.active {
@@ -435,6 +504,13 @@
     }
     .more-controls {
       bottom: -60px;
+    }
+    .bar {
+      top: 90px;
+      left: 90px;
+      color: black;
+      background-color: black;
+      transform: scale(0.6875);
     }
   }
 }

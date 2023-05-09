@@ -1,8 +1,11 @@
 const Chart = /* html */ `
         <div class="warehouse">
             <div class = "top">
-                <i id = "menuBtn" class = "fas fa-bars menu-btn"></i>
-                <i id = "barSearcg" class = "fas fa-search"></i>
+                <aisde class = "topInner">
+                    <i id = "menuBtn" class = "fas fa-bars menu-btn"></i>
+                    <i id = "barSearcg" class = "fas fa-search"></i>
+
+                </aisde>
             </div>
             <div class = "cover-image"></div>
             <div class = "player-body"></div>
@@ -24,6 +27,14 @@ const Chart = /* html */ `
                         </td>
                     </tr>
                 </table> 
+            </div>
+            <div class = "bar">
+                <div class = "dot">
+                    </div>
+                    <div class = "time">
+                        <h5 class = "current-time">0:00</h5>
+                        <h5 class = "duration">0:00</h5>
+                    </div>
             </div>
             <div class= "info">
                 <h2>song title</h2>

@@ -20,6 +20,10 @@ const render = () => {
 
 window.addEventListener("popstate", render);
 
+const navigateTo = (url) => {
+  history.pushState(null, null, url);
+  render();
+};
 render();
 
 // Login Code
@@ -137,23 +141,6 @@ let shuffle = false;
 let repeat = false;
 let favourites = [];
 let audio = new Audio();
-
-// console.log(albumAndArtists);
-// const songs = [
-//   {
-//     title: "Comedy",
-//     artist: "Gen Hoshino",
-//     img_src: "1.jpg",
-//     src: "comedy.mp4",
-//   },
-//   {
-//     title: "Ghost (Acoustic)",
-//     artist: "Ben Woodward",
-//     img_src: "2.jpg",
-//     src: "comedy.mp4",
-//   },
-// ];
-// console.log(songs);
 
 const playlistContainer = document.querySelector("#playlist");
 const infoWrapper = document.querySelector(".info");

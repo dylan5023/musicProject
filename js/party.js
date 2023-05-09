@@ -1,10 +1,13 @@
-function h(){
+function show(){
     $(".sideBar").slideToggle();
-    console.log("True")
+    console.log("True");
 }
 
-$(".hamburguerMenu").click(h);
+$(".hamburguerMenu").click(show);
 
-// $.getJSON("../static/data/track.json", (data)=>{
-//     console.log(data)
-// })
+let trackList = null;
+
+$.getJSON("http://localhost:8070/tracks", (data)=>{
+    trackList = data;
+    console.log(trackList)
+});

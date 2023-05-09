@@ -4,7 +4,8 @@ import User from './user.js';
 import Profile from './components/Profile';
 import CreateParty from './components/CreateParty';
 import Chart from './components/Chart';
-// Single Page Aplication
+// Single Page Aplication	
+
 
 const pages = [
 	{ path: '#/page1', template: Chart },
@@ -33,6 +34,7 @@ $.getJSON('http://localhost:8070/users', (data) => {
 	users = data;
 	console.log(users);
 });
+$('#loginPage').hide();
 // Checking user's credentials
 loginForm.submit((e) => {
 	e.preventDefault();
@@ -45,14 +47,14 @@ loginForm.submit((e) => {
 	});
 });
 //Creating a new user
+//Creating a new user
 createAccount.submit((e) => {
 	e.preventDefault();
-	const fName = $('.input').eq(0).val();
-	const lName = $('.input').eq(1).val();
-	const email = $('.input').eq(2).val();
-	const password = $('.input').eq(3).val();
-	const confirmPassword = $('.input').eq(4).val();
-	userId += userList.size;
+	let fName = $(".input-1").val();
+	let lName = $('.input-2').val();
+	let email = $('.input-3').val();
+	let password = $('.input-4').val();
+	let confirmPassword = $('.input-5').val();	
  
 	// Input error message
 	if ($('#password1').val() !== $('#password1').val()) {
@@ -61,26 +63,29 @@ createAccount.submit((e) => {
 	} else if (fName === '' || lName === '' || email === '' || password === '' || confirmPassword === '') {
 	  setFormMessage('#createAccountForm', 'error', 'Please fill up the form');
 	} else {
-	  let newUser = new User(userId, fName, lName, email, password);
-	  localStorage.set(userId, newUser);
+	  let newUser = new User(userId, fName, lName, email);
+	  userList.set(userId, newUser);
  
-	  // Send data to the server
+	  // Send user data to server
 	  $.ajax({
-		 url: 'http://localhost:8070/users',
-		 method: 'POST',
-		 data: JSON.stringify(newUser),
-		 contentType: 'application/json',
-		 success: function(response) {
-			console.log(response);
-			$('#loginPage').hide();
-			$('#mainPage').show();
-		 },
-		 error: function(jqXHR, textStatus, errorThrown) {
-			console.log(textStatus, errorThrown);
-		 }
+		type: "POST",
+		url: "http://localhost:8070/users",
+		data: JSON.stringify(newUser),
+		contentType: "application/json",
+		success: function() {
+			 setFormMessage('#createAccountForm', 'success', 'Account created successfully');
+			 $("#loginPage").hide();
+			 $("#mainPage").show();
+			 console.log(newUser);
+		},
+		error: function() {
+			 setFormMessage('#createAccountForm', 'error', 'Failed to create account');
+		}
 	  });
+ 
+	  userId++;
 	}
- });
+});
 
 // Clear input error
 $('.input').on('input', () => {

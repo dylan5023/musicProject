@@ -34,7 +34,8 @@ app.use((req, res, next) => {
 });
 
 app.get("/users", (req, res) => {
-  res.status(200).json(JSON.parse(exportJsonPicture()));
+  const userList = JSON.parse(exportJsonPicture());
+  res.status(200).json(userList);
 });
 
 app.get("/tracks", (req, res) => {

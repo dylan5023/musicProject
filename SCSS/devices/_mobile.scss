@@ -263,8 +263,7 @@
   .profile-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    height: 70vh;
+    height: 65vh;
     width: 300px;
     h2 {
       text-align: center;
@@ -273,34 +272,32 @@
 
   .button-group {
     display: flex;
-    justify-content: space-between;
-    padding: 0 1rem 0 1rem ;
+    flex-direction: column;
+    row-gap: 3vh;
   }
 
   .bt {
     padding: 0;
     font-size: 15px;
-    width: 32%;
+    width: 50px;
   }
 
   .span-group {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     font-weight: 700;
-  }
-
-  .followers, .province {
-    letter-spacing: 1px;
-    width: 38%;
-    text-align: center;
   }
   
   figcaption {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    row-gap: 1vh;
+    column-gap: 16vh;
+    justify-content: space-between;
+    align-items: center;
     height: 20vh;
     border-bottom: 2px solid $mainColor;
+  }
+
+  .userid {
+    font-weight: 800;
   }
 }

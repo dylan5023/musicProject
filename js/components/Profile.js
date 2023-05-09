@@ -2,14 +2,16 @@ const Profile = /* html */ `
     <article class = "page3">
         <section class="profile-container">
             <figure class="profile-info">
-                <img src="img/profile.jpg" alt="User" />
+                <img src="img/profile.jpg" />
+                <span class="userid">Id:</span>
                 <figcaption>
                     <section class="span-group">
-                        <span class="province">Province, Country</span>
-                        <span class="followers">Followers: Following:</span>
+                        <span class="fname">First name:</span>
+                        <span class="lname">Last name:</span>
+                        <span class="email">Email:</span>
                     </section>
                     <section class="button-group">
-                        <button class="bt edit">Edit profile</button>
+                        <button class="bt edit">Edit</button>
                         <button class="bt share">Share</button>
                     </section>
                 </figcaption>

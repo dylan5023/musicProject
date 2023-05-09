@@ -68,7 +68,23 @@ createAccount.submit((e) => {
 		$('#loginPage').hide();
 		$('#mainPage').show();
 		console.log(newUser);
-	}
+
+		 // Send user data to server
+		 $.ajax({
+			type: "POST",
+			url: "http://localhost:8070/users",
+			data: JSON.stringify(newUser),
+			contentType: "application/json",
+			success: function() {
+				 setFormMessage('#createAccountForm', 'success', 'Account created successfully');
+			},
+			error: function() {
+				 setFormMessage('#createAccountForm', 'error', 'Failed to create account');
+			}
+		  });
+	 
+		  userId++;
+		}
 });
 
 // Clear input error

@@ -26,71 +26,173 @@ const navigateTo = (url) => {
 };
 render();
 
-// Login Code
-const loginForm = $("#loginForm");
-const createAccount = $("#createAccountForm");
-let userList = new Map();
-let users = null;
-let userId = 1000;
+// login
+// $("#mainPage").hide();
+const mainPage = document.getElementById("mainPage");
+const loginForm = document.getElementById("loginForm");
 
-// Loading data from JSON file
-$.getJSON("http://localhost:8070/users", (data) => {
-  users = data;
-  console.log(users);
-});
-// Checking user's credentials
-loginForm.submit((e) => {
+loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  users.forEach((user) => {
-    if (
-      user.email == $(".input").eq(0).val() &&
-      user.password == $(".input").eq(1).val()
-    ) {
-      $("#loginPage").hide();
-      $("#mainPage").show();
-    }
-    setFormMessage("#loginForm", "error", "Invalid email/password combination");
-  });
-});
-//Creating a new user
-createAccount.submit((e) => {
-  e.preventDefault();
-  const name = $(".input").eq(0).val();
-  const password = $(".input").eq(1).val();
-  const confirmPassword = $(".input").eq(2).val();
-  userId += userList.size;
 
+  const email = loginForm.querySelector('input[type="text"]').value;
+  const password = loginForm.querySelector('input[type="password"]').value;
+
+  fetch("http://localhost:8070/api/users/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.loginSuccess) {
+        console.log(mainPage);
+        $("#loginPage").hide();
+        $("#mainPage").show();
+      } else {
+        setFormMessage(
+          "#loginForm",
+          "error",
+          "Invalid email/password combination"
+        );
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});
+
+// sign up
+const signupForm = document.getElementById("createAccountForm");
+signupForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  let name = $(".input").eq(2).val();
+  let password = $("#password1").val();
+  let confirmPassword = $("#password2").val();
+  console.log(`this is email: ${name}`);
+  console.log(`this is pass: ${password}`);
+  console.log(`this is confim: ${confirmPassword}`);
+
+  // validate inputs
   //  Input error message
-  if ($("#password1").val() !== $("#password1").val()) {
+  if (password !== confirmPassword) {
     $(".form-message").text("Passwords do not match");
     $(".form-message").addClass("form-message-error");
+    $(".form-message").show();
+    return false;
   } else if (name === "" || password === "" || confirmPassword === "") {
-    setFormMessage("#createAccountForm", "error", "Please fill up the form");
+    $(".form-message").text("please fill out from");
+    $(".form-message").addClass("form-message-error");
+    $(".form-message").show();
+    return false;
   } else {
-    let newUser = new User(userId, name, password, confirmPassword);
-    userList.set(newUser);
-    $("#loginPage").hide();
-    $("#mainPage").show();
-    console.log(newUser);
+    // create user object
+    $(".form-message").hide();
+    $(".form-message").removeClass("form-message-error");
+    const user = {
+      email: name,
+      password: password,
+    };
+
+    try {
+      // send user data to server
+      const response = await fetch("http://localhost:8070/api/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      const data = await response.json();
+      // console.log(data);
+
+      if (data.error) {
+        setFormMessage("#createAccountForm", "data.error", "fail to sign up");
+      } else {
+        // clear form inputs
+        console.log(data);
+        setFormMessage("#createAccountForm", "success", "success to sign up");
+        // clear form inputs
+        $(".input").eq(2).val("");
+        $("#password1").val("");
+        $("#password2").val("");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 });
+
+// Login Code
+// const loginForm = $("#loginForm");
+// const createAccount = $("#createAccountForm");
+// let userList = new Map();
+// let users = null;
+// let userId = 1000;
+
+// // Loading data from JSON file
+// $.getJSON("http://localhost:8070/users", (data) => {
+//   users = data;
+//   console.log(users);
+// });
+// // Checking user's credentials
+
+// loginForm.submit((e) => {
+//   e.preventDefault();
+//   users.forEach((user) => {
+//     if (
+//       user.email == $(".input").eq(0).val() &&
+//       user.password == $(".input").eq(1).val()
+//     ) {
+//       $("#loginPage").hide();
+//       $("#mainPage").show();
+//     }
+//     setFormMessage("#loginForm", "error", "Invalid email/password combination");
+//   });
+// });
+
+// //Creating a new user
+// createAccount.submit((e) => {
+//   e.preventDefault();
+//   const name = $(".input").eq(0).val();
+//   const password = $(".input").eq(1).val();
+//   const confirmPassword = $(".input").eq(2).val();
+//   userId += userList.size;
+
+//   //  Input error message
+//   if ($("#password1").val() !== $("#password1").val()) {
+//     $(".form-message").text("Passwords do not match");
+//     $(".form-message").addClass("form-message-error");
+//   } else if (name === "" || password === "" || confirmPassword === "") {
+//     setFormMessage("#createAccountForm", "error", "Please fill up the form");
+//   } else {
+//     let newUser = new User(userId, name, password, confirmPassword);
+//     userList.set(newUser);
+//     $("#loginPage").hide();
+//     $("#mainPage").show();
+//     console.log(newUser);
+//   }
+// });
 
 // Clear input error
 $(".input").on("input", () => {
   $(".form-message").hide("form-message-error");
 });
 
-// Hide login and display create account form
+// // Hide login and display create account form
 $(".noaccount").click((e) => {
   e.preventDefault();
-  loginForm.hide();
-  createAccount.show();
+  $(loginForm).hide();
+  $(signupForm).show();
 });
 // Hide create account and display login form
 $(".account").click((e) => {
   e.preventDefault();
-  createAccount.hide();
-  loginForm.show();
+  $(signupForm).hide();
+  $(loginForm).show();
 });
 
 // Setting the form message

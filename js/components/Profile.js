@@ -2,7 +2,7 @@ const Profile = /* html */ `
     <article class = "page3">
         <section class="profile-container">
             <figure class="profile-info">
-                <img src="img/profile.jpg" />
+                <img src="https://www.flaticon.com/free-icon/user_456212?term=user&page=1&position=2&origin=search&related_id=456212" />
                 <span class="userid">Id:</span>
                 <figcaption>
                     <section class="span-group">

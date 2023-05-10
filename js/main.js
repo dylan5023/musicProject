@@ -1,9 +1,9 @@
 import { node } from 'prop-types';
 import '../scss/style.scss';
 import User from './user.js';
-import Profile from './componets/Profile';
-import CreateParty from './componets/CreateParty';
-import Chart from './componets/Chart';
+import Profile from './components/Profile';
+import CreateParty from './components/CreateParty';
+import Chart from './components/Chart';
 // Single Page Aplication
 
 const pages = [
@@ -88,7 +88,7 @@ createAccount.submit((e) => {
 });
 
 // Clear input error
-$('.input').on('input', () => {
+$('.input').on('input', () => {0
 	$('.form-message').hide('form-message-error');
 });
 

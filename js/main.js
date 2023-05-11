@@ -38,10 +38,7 @@ $.getJSON('http://localhost:8070/users', (data) => {
 loginForm.submit((e) => {
 	e.preventDefault();
 	users.forEach((user) => {
-		if (
-			user.email == $('.input').eq(0).val() &&
-			user.password == $('.input').eq(1).val()
-		) {
+		if (user.email == $('.input').eq(0).val() && user.password == $('.input').eq(1).val()) {
 			$('#loginPage').hide();
 			$('#mainPage').show();
 		}

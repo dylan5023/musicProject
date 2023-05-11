@@ -1,6 +1,5 @@
-const CreateParty = /* html */ `
-    <article class = "page2">
-        <h1> Create a Party</h1>
-    </article>`;
-
-export default CreateParty;
+const CreateParty = /*html*/`
+   <article class="page1">
+      <h1>Create Party</h1>
+   </article>
+`

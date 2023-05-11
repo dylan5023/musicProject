@@ -1,25 +1,25 @@
 import { node } from "prop-types";
 import "../scss/style.scss";
-import "../js/party"
+import "../js/party";
 import User from "./user.js";
-import Chart from "./componets/Chart";
-// import Profile from "./componets/Profile";
-import CreateParty from "./componets/CreateParty";
+import Chart from "./components/Chart";
+import Profile from "./components/Profile";
+import CreateParty from "./components/CreateParty";
 // import Chart from "./componets/Chart";
 // Single Page Aplication
 
 const pages = [
-	{ path: '#/page1', template: Chart },
-	{ path: '#/page2', template: CreateParty },
-	{ path: '#/page3', template: Profile },
+  { path: "#/page1", template: Chart },
+  { path: "#/page2", template: CreateParty },
+  { path: "#/page3", template: Profile },
 ];
 const appEl = document.querySelector("#app");
 const render = () => {
-	const page = pages.find((page) => page.path === location.hash);
-	appEl.innerHTML = page ? page.template : Chart;
+  const page = pages.find((page) => page.path === location.hash);
+  appEl.innerHTML = page ? page.template : Chart;
 };
 
-window.addEventListener('popstate', render);
+window.addEventListener("popstate", render);
 
 const navigateTo = (url) => {
   history.pushState(null, null, url);
@@ -187,8 +187,9 @@ signupForm.addEventListener("submit", async (event) => {
 // });
 
 // Clear input error
-$('.input').on('input', () => {0
-	$('.form-message').hide('form-message-error');
+$(".input").on("input", () => {
+  0;
+  $(".form-message").hide("form-message-error");
 });
 
 // // Hide login and display create account form
@@ -206,22 +207,22 @@ $(".account").click((e) => {
 
 // Setting the form message
 function setFormMessage(formElement, type, message) {
-	const messageElement = $(`${formElement} .form-message`);
+  const messageElement = $(`${formElement} .form-message`);
 
-	messageElement.text(message);
-	messageElement.removeClass('form-message-success', 'form-message-error');
-	messageElement.addClass(`form-message-${type}`);
+  messageElement.text(message);
+  messageElement.removeClass("form-message-success", "form-message-error");
+  messageElement.addClass(`form-message-${type}`);
 }
 
 //party popper
-$(".partyForm").submit((e)=>{
+$(".partyForm").submit((e) => {
   e.preventDefault();
   $("#mainPage").hide();
   $("#party").show();
 });
 
 // get out of the party
-$(".back").click((e)=>{
+$(".back").click((e) => {
   $("#party").hide();
   $("#mainPage").show();
 });
@@ -256,7 +257,7 @@ function getAlbumAndArtists(data) {
 console.log(songs);
 const menuBtn = document.querySelector(".menu-btn");
 const warehouse = document.querySelector(".warehouse");
-menuBtn.addEventListener("click", () => {
+$(menuBtn).on("click", () => {
   warehouse.classList.toggle("active");
 });
 let playing = false;
@@ -353,7 +354,7 @@ const playPauseBtn = document.querySelector("#playpause");
 const nextBtn = document.querySelector("#next");
 const prevBtn = document.querySelector("#prev");
 
-playPauseBtn.addEventListener("click", () => {
+$(playPauseBtn).on("click", () => {
   if (playing) {
     playPauseBtn.classList.replace("fa-pause", "fa-play");
     playing = false;
@@ -378,7 +379,7 @@ function nextSong() {
   }
 }
 
-nextBtn.addEventListener("click", nextSong);
+$(nextBtn).on("click", nextSong);
 
 function preveSong() {
   if (currentSong > 0) {
@@ -392,7 +393,7 @@ function preveSong() {
     audio.play();
   }
 }
-prevBtn.addEventListener("click", preveSong);
+$(prevBtn).on("click", preveSong);
 
 function addTofavourites(index) {
   if (favourites.includes(index)) {
@@ -409,7 +410,7 @@ function addTofavourites(index) {
   updatePlaylist(songs);
 }
 
-currentFavourite.addEventListener("click", () => {
+$(currentFavourite).on("click", () => {
   currentFavourite.classList.toggle("active");
   addTofavourites(currentSong);
 });

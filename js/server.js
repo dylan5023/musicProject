@@ -2,6 +2,7 @@ const fileManager = require("fs");
 const cors = require("cors");
 const filePath = "../static/data/user.json";
 const trackFile = "../static/data/tracks.json";
+let users = JSON.parse(fileManager.readFileSync(filePath, "utf-8"));
 // // require server.js
 // require("./server.js");
 
@@ -36,6 +37,13 @@ app.use((req, res, next) => {
 app.get("/users", (req, res) => {
   res.status(200).json(JSON.parse(exportJsonPicture()));
 });
+
+fileManager.writeFileSync("users3.json", JSON.stringify(users),"utf-8")
+
+// app.post("/submit", (req, res) => {
+//   fileManager.writeFileSync(filePath, JSON.stringify(users));
+//   console.log(users);
+// });
 
 app.get("/tracks", (req, res) => {
   res.status(200).json(JSON.parse(exportTrackList()));

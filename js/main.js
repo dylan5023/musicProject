@@ -4,6 +4,7 @@ import User from './user.js';
 import Profile from './components/Profile';
 import CreateParty from './components/CreateParty';
 import Chart from './components/Chart';
+export default users;
 // Single Page Aplication
 
 const pages = [
@@ -25,9 +26,8 @@ render();
 // Login Code
 const loginForm = $('#loginForm');
 const createAccount = $('#createAccountForm');
-let userList = new Map();
-let users = null;
-let userId = 1000;
+let users = [];
+let userId = 1001;
 
 // Loading data from JSON file
 $.getJSON('http://localhost:8070/users', (data) => {
@@ -51,40 +51,56 @@ loginForm.submit((e) => {
 //Creating a new user
 createAccount.submit((e) => {
 	e.preventDefault();
-	const name = $('.input').eq(0).val();
-	const password = $('.input').eq(1).val();
-	const confirmPassword = $('.input').eq(2).val();
-	userId += userList.size;
-
+	const fName = $('.input-1').val();
+	const lName = $('.input-2').val();
+	const email = $('.input-3').val();
+	const password = $('.input-4').val();
+	const confirmPassword = $('.input-5').eq(2).val();
 	//  Input error message
 	if ($('#password1').val() !== $('#password1').val()) {
 		$('.form-message').text('Passwords do not match');
 		$('.form-message').addClass('form-message-error');
-	} else if (name === '' || password === '' || confirmPassword === '') {
+	} else if (fName === '' || lName === '' || email === '' || password === '' || confirmPassword === '') {
 		setFormMessage('#createAccountForm', 'error', 'Please fill up the form');
 	} else {
-		let newUser = new User(userId, name, password, confirmPassword);
-		userList.set(newUser);
-		$('#loginPage').hide();
-		$('#mainPage').show();
-		console.log(newUser);
+		let newUser = new User(userId, fName, lName, email);
+		users.push(newUser);
 
-		 // Send user data to server
-		 $.ajax({
-			type: "POST",
-			url: "http://localhost:8070/users",
-			data: JSON.stringify(newUser),
-			contentType: "application/json",
-			success: function() {
-				 setFormMessage('#createAccountForm', 'success', 'Account created successfully');
-			},
-			error: function() {
-				 setFormMessage('#createAccountForm', 'error', 'Failed to create account');
+		// fetch('http://localhost:8070/submit', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify(newUser),
+		// }).then(function (response) {
+		// 	return response.json();
+		// })
+		// $.ajax({
+		//   type: "POST",
+		//   url: "http://localhost:8070/users",
+		//   data: JSON.stringify(newUser),
+		//   contentType: "application/json",
+		//   success: function() {
+		// 		setFormMessage('#createAccountForm', 'success', 'Account created successfully');
+		// 	  //  $('#loginPage').hide();
+		// 	  //  $('#mainPage').show();
+		// 		console.log(users);
+		//   },
+		//   error: function() {
+		// 		setFormMessage('#createAccountForm', 'error', 'Failed to create account');
+		//   }
+		//  });
+		$.post('http://localhost:8070/users', newUser, (data, status) => {
+			if(status === "success") {
+				console.log(data);
 			}
-		  });
-	 
-		  userId++;
-		}
+		},
+		"json");
+
+		// const url = 'http://localhost:8070/users';
+		// let xhr = new XMLHttpRequest();
+		// userId++;
+	 }
 });
 
 // Clear input error

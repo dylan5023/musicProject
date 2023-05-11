@@ -94,6 +94,11 @@
     }
   }
 
+  #createAccountForm {
+    height: 70vh;
+    row-gap: 2vh;
+  }
+
   form {
     @include DisplayColumn(4vh);
     align-items: center;

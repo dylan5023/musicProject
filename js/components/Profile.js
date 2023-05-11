@@ -2,7 +2,7 @@ const Profile = /* html */ `
     <article class = "page3">
         <section class="profile-container">
             <figure class="profile-info">
-                <img src="https://www.flaticon.com/free-icon/user_456212?term=user&page=1&position=2&origin=search&related_id=456212" />
+                <img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" />
                 <span class="userid">Id:</span>
                 <figcaption>
                     <section class="span-group">
@@ -16,8 +16,8 @@ const Profile = /* html */ `
                     </section>
                 </figcaption>
             </figure>
-            <section class="recent-parties">
-                <h2>Recent Parties</h2>
+            <section class="favorite-tracks">
+                <h2>Favorite Tracks</h2>
                 <ul class="parties-list">
                 </ul>
 		    </section>

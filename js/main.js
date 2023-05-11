@@ -247,8 +247,6 @@ menuBtn.addEventListener("click", () => {
 });
 let playing = false;
 let currentSong = 0;
-let shuffle = false;
-let repeat = false;
 let favourites = [];
 let audio = new Audio();
 

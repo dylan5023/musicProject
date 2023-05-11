@@ -3,7 +3,7 @@ import "../scss/style.scss";
 import "../js/party"
 import User from "./user.js";
 import Chart from "./componets/Chart";
-import Profile from "./componets/Profile";
+// import Profile from "./componets/Profile";
 import CreateParty from "./componets/CreateParty";
 // import Chart from "./componets/Chart";
 // Single Page Aplication

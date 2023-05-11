@@ -43,7 +43,6 @@ app.get("/users", (req, res) => {
   res.status(200).json(JSON.parse(exportJsonPicture()));
 });
 
-fileManager.writeFileSync("users3.json", JSON.stringify(users),"utf-8")
 
 // app.post("/submit", (req, res) => {
 //   fileManager.writeFileSync(filePath, JSON.stringify(users));

@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!-- <link rel="stylesheet" href="./scss/main.scss" /> -->
     <title>TrackFlow</title>
   </head>
@@ -52,8 +56,34 @@
           <h2 class="form-title">Create Account</h2>
           <span class="form-message form-message-error"></span>
           <section class="input-group">
-            <input type="email" class="input" autofocus placeholder="Email" />
+            <input
+              type="text"
+              id="firstName "
+              class="input"
+              autofocus
+              placeholder="First Name"
+            />
             <span class="input-error-message"></span>
+          </section>
+          <section class="input-group">
+            <input
+              type="text"
+              id="lastName "
+              class="input"
+              autofocus
+              placeholder="Last Name"
+            />
+            <span class="input-error-message"></span>
+            <section class="input-group">
+              <input
+                type="email"
+                id="email1 "
+                class="input"
+                autofocus
+                placeholder="Email"
+              />
+              <span class="input-error-message"></span>
+            </section>
           </section>
           <section class="input-group">
             <input
@@ -86,7 +116,7 @@
     <div id="mainPage" style="display: none">
       <main>
         <header>
-          <a href="#" class="btnLeft">Help</a>
+          <a href="#/page1" class="btnLeft">Help</a>
           <!--Help btn without page yet-->
           <aside>
             <!--Logo in the middle-->

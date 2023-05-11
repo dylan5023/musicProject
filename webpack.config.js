@@ -26,6 +26,21 @@ module.exports = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192, // 8KB 미만 이미지만 인라인 처리
+              name: "[name].[ext]",
+              outputPath: "image/",
+              publicPath: "/static/image/",
+              fallback: "file-loader",
+            },
+          },
+        ],
+      },
     ],
   },
 

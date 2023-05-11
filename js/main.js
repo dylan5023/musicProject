@@ -68,10 +68,14 @@ const signupForm = document.getElementById("createAccountForm");
 signupForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  let name = $(".input").eq(2).val();
+  let firstName = $(".input").eq(2).val();
+  let lastName = $(".input").eq(3).val();
+  let email = $(".input").eq(4).val();
   let password = $("#password1").val();
   let confirmPassword = $("#password2").val();
-  console.log(`this is email: ${name}`);
+  console.log(`this is email: ${email}`);
+  console.log(`this is firstName: ${firstName}`);
+  console.log(`this is lastName: ${lastName}`);
   console.log(`this is pass: ${password}`);
   console.log(`this is confim: ${confirmPassword}`);
 
@@ -82,8 +86,8 @@ signupForm.addEventListener("submit", async (event) => {
     $(".form-message").addClass("form-message-error");
     $(".form-message").show();
     return false;
-  } else if (name === "" || password === "" || confirmPassword === "") {
-    $(".form-message").text("please fill out from");
+  } else if (email === "" || password === "" || confirmPassword === "") {
+    $(".form-message").text("Please fill out from");
     $(".form-message").addClass("form-message-error");
     $(".form-message").show();
     return false;
@@ -92,7 +96,9 @@ signupForm.addEventListener("submit", async (event) => {
     $(".form-message").hide();
     $(".form-message").removeClass("form-message-error");
     const user = {
-      email: name,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
       password: password,
     };
 
@@ -119,6 +125,8 @@ signupForm.addEventListener("submit", async (event) => {
         $(".input").eq(2).val("");
         $("#password1").val("");
         $("#password2").val("");
+        $(".input").eq(3).val("");
+        $(".input").eq(4).val("");
       }
     } catch (error) {
       console.error(error);

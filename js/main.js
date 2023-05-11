@@ -1,8 +1,9 @@
 import { node } from "prop-types";
 import "../scss/style.scss";
+import "../js/party"
 import User from "./user.js";
 import Chart from "./componets/Chart";
-import Profile from "./componets/Profile";
+// import Profile from "./componets/Profile";
 import CreateParty from "./componets/CreateParty";
 // import Chart from "./componets/Chart";
 // Single Page Aplication
@@ -211,6 +212,19 @@ function setFormMessage(formElement, type, message) {
 	messageElement.removeClass('form-message-success', 'form-message-error');
 	messageElement.addClass(`form-message-${type}`);
 }
+
+//party popper
+$(".partyForm").submit((e)=>{
+  e.preventDefault();
+  $("#mainPage").hide();
+  $("#party").show();
+});
+
+// get out of the party
+$(".back").click((e)=>{
+  $("#party").hide();
+  $("#mainPage").show();
+});
 
 // ----------------------------------------------------------------
 // Chart

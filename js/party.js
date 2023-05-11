@@ -1,26 +1,19 @@
+import { element } from "prop-types";
 import Tracks from "./tracks";
 const trackFile = "http://localhost:8070/tracks";
 let trackList = null;
-let queue = new Array();
+let queue = [];
 let names = [];
 let library = [];
 $.getJSON(trackFile, (data) => {
     trackList = data;
     trackList.forEach((track)=>{
         names.push(track.track_name)
-    })
-    function getUnique(array){
-        var uniqueArray = [];
-        
-        for(var value of array){
-            if(uniqueArray.indexOf(value) === -1){
-                uniqueArray.push(value);
-            }
-        }
-        return uniqueArray;
-    }
-    library = getUnique(names);
-    console.log(library);
+
+    });
+    library = [...new Set(names)];
+    console.log(trackList);
+    // console.log(names);
 });
 
 function showGuests() {
@@ -33,24 +26,20 @@ function addMusic(e) {
     let search = $(".musicInput").val().toLowerCase();
 
     for(let val of trackList){
-        // console.log(val)
         let name = val.track_name.toLowerCase();
-        if (search == name && search != "") {
+        if (search == name && search != "" && queue.length < 10) {
             let tempTrack = new Tracks(val.track_id,val.artists,val.track_name,val.album_name,val.track_genre,val.duration_ms,val.explicit);
             queue.push(tempTrack);
             $(".queue").append(tempTrack.toQueue());
             return false;
         };
         $(".musicInput").val("");
+        
     }
 }
 
 
 function filterLibrary(){
-
-    // library.forEach((val)=>{
-
-    // });
 
     let search = $(".musicInput").val().toLowerCase();
     let counter = 0;
@@ -68,12 +57,9 @@ function filterLibrary(){
             $(".filter").append(div);
             counter++;
         }
-        // else {
-        //     item.style.display = "none";
-        // }
     });
-    // if(search == "")
 }
+
 $(".musicInput").on("keyup",filterLibrary);
 $(".hamburguerMenu").click(showGuests);
 $(".musicAdd").submit(addMusic);

@@ -1,24 +1,25 @@
 import { node } from "prop-types";
 import "../scss/style.scss";
+import "../js/party"
 import User from "./user.js";
 import Chart from "./componets/Chart";
-import Profile from "./componets/Profile";
+// import Profile from "./componets/Profile";
 import CreateParty from "./componets/CreateParty";
 // import Chart from "./componets/Chart";
 // Single Page Aplication
 
 const pages = [
-  { path: "#/page1", template: Chart },
-  { path: "#/page2", template: CreateParty },
-  { path: "#/page3", template: Profile },
+	{ path: '#/page1', template: Chart },
+	{ path: '#/page2', template: CreateParty },
+	{ path: '#/page3', template: Profile },
 ];
 const appEl = document.querySelector("#app");
 const render = () => {
-  const page = pages.find((page) => page.path === location.hash);
-  appEl.innerHTML = page ? page.template : Chart;
+	const page = pages.find((page) => page.path === location.hash);
+	appEl.innerHTML = page ? page.template : Chart;
 };
 
-window.addEventListener("popstate", render);
+window.addEventListener('popstate', render);
 
 const navigateTo = (url) => {
   history.pushState(null, null, url);
@@ -186,8 +187,8 @@ signupForm.addEventListener("submit", async (event) => {
 // });
 
 // Clear input error
-$(".input").on("input", () => {
-  $(".form-message").hide("form-message-error");
+$('.input').on('input', () => {0
+	$('.form-message').hide('form-message-error');
 });
 
 // // Hide login and display create account form
@@ -205,12 +206,25 @@ $(".account").click((e) => {
 
 // Setting the form message
 function setFormMessage(formElement, type, message) {
-  const messageElement = $(`${formElement} .form-message`);
+	const messageElement = $(`${formElement} .form-message`);
 
-  messageElement.text(message);
-  messageElement.removeClass("form-message-success", "form-message-error");
-  messageElement.addClass(`form-message-${type}`);
+	messageElement.text(message);
+	messageElement.removeClass('form-message-success', 'form-message-error');
+	messageElement.addClass(`form-message-${type}`);
 }
+
+//party popper
+$(".partyForm").submit((e)=>{
+  e.preventDefault();
+  $("#mainPage").hide();
+  $("#party").show();
+});
+
+// get out of the party
+$(".back").click((e)=>{
+  $("#party").hide();
+  $("#mainPage").show();
+});
 
 // ----------------------------------------------------------------
 // Chart

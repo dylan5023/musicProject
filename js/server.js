@@ -43,6 +43,12 @@ app.get("/users", (req, res) => {
   res.status(200).json(JSON.parse(exportJsonPicture()));
 });
 
+
+// app.post("/submit", (req, res) => {
+//   fileManager.writeFileSync(filePath, JSON.stringify(users));
+//   console.log(users);
+// });
+
 app.get("/tracks", (req, res) => {
   res.status(200).json(JSON.parse(exportTrackList()));
 });

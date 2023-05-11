@@ -1,5 +1,5 @@
 const CreateParty = /* html */ `
-<form>
+<form class="partyForm">
 <input type="text" id="partyName" name="partyName" placeholder="Party Name"/>
 <select>
     <option>Private</option>
@@ -15,10 +15,10 @@ export default CreateParty;
 // };
 
 
-// export function Party() {
-//     return (
-//         <section>
+export function Party() {
+    return (
+        <section>
 
-//         </section>
-//     );
-// };
+        </section>
+    );
+};

@@ -68,7 +68,7 @@
     </section>
   </div>
   <!-- main page -->
-  <div id="mainPage" style="display: none">
+  <div id="mainPage" >
     <main>
       <header>
         <a href="#" class="btnLeft">Help</a>
@@ -95,8 +95,7 @@
       </footer>
     </main>
   </div>
-  <!-- party page -->
-  <div id="party" >
+  <div id="party" style="display: none">
     <header>
       <h1>Party Name</h1>
       <nav>
@@ -123,19 +122,25 @@
             <li>Guest-14</li>
             <li>Guest-15</li>
           </ul>
+          <div class="back">Home</div>
         </aside>
       </nav>
     </header>
     <section>
-      <ul>
-        <ol>Music-1</ol>
-        <ol>Music-2</ol>
-        <ol>Music-3</ol>
-      </ul>
+      <table class="queue" >
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+
+      </table>
     </section>
     <footer>
-      <form action="#">
-        <input type="text" placeholder="Serach Music">
+      <form action="#" class="musicAdd">
+        <input type="text" placeholder="Serach Music" class="musicInput">
         <input type="submit" value="Send">
       </form>
     </footer>

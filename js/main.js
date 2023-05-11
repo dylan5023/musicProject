@@ -26,6 +26,7 @@ render();
 // Login Code
 const loginForm = $("#loginForm");
 const createAccount = $("#createAccountForm");
+const party = $("#party");
 let userList = new Map();
 let users = null;
 let userId = 1000;
@@ -33,7 +34,7 @@ let userId = 1000;
 // Loading data from JSON file
 $.getJSON("http://localhost:8070/users", (data) => {
   users = data;
-  console.log(users);
+  // console.log(users);
 });
 // Checking user's credentials
 loginForm.submit((e) => {
@@ -98,6 +99,20 @@ function setFormMessage(formElement, type, message) {
   messageElement.removeClass("form-message-success", "form-message-error");
   messageElement.addClass(`form-message-${type}`);
 }
+
+//party popper
+$(".partyForm").submit((e)=>{
+  e.preventDefault();
+  $("#mainPage").hide();
+  $("#party").show();
+});
+
+// get out of the party
+$(".back").click((e)=>{
+  $("#party").hide();
+  $("#mainPage").show();
+});
+
 
 // get data from server
 // async function getData() {
